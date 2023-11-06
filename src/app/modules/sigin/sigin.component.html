@@ -1,0 +1,74 @@
+<body style="background-color: white; display: block; height: 110vh;">  
+  <!--<nav class="navbar bg-body-tertiary"  data-bs-theme="dark">
+    <div class="container-fluid">
+        <a class="navbar-brand"  style="color: rgb(221, 221, 221);">Reseñas turisticas</a> 
+    </div>
+  </nav> -->
+
+  <div class="card" style="border: solid 2px;">
+    <p-menubar [model]="items">
+      <ng-template pTemplate="start">
+        <span style="text-align: center; color: black;"> RESEÑAS TURISTICAS </span>
+      </ng-template>
+    </p-menubar>
+  </div>
+  
+  
+  
+          
+  
+  
+          <h1 class="display-1" style="text-align: center; font-family: sans-serif ; margin-top: 20px; color: #135B9E; font-size: 80px;">Registrarse</h1>   <!-- Cartel registrarse-->
+
+      
+<div style="margin: 0 auto; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+  <div class="form-floating" style="align-items: center; width: 750px;  height: 80px; margin-top: 50px;">      <!-- Campo para el nombre-->
+            
+    <textarea class="form-control" placeholder="Ingrese su nombre" id="floatingTextarea" ></textarea>
+    <label for="floatingTextarea" >Nombre</label> 
+  </div>
+
+  
+  
+  <div class="form-floating" style="align-items: center; width: 750px;  height: 80px; margin-top: 5px;">   <!-- campo para el apellido-->
+    <textarea class="form-control" placeholder="Ingrese su apellido" id="floatingTextarea"></textarea>
+    <label for="floatingTextarea">Apellido</label>
+  </div>
+
+  
+
+<form style="margin-top: 5px; align-items: center; width: 750px;  height: 80px;" > <!-- ingresar email y contrasenia-->
+<div class="mb-3" style="align-items: center; width: 750px;  height: 80px;">
+  <label for="exampleInputEmail1" class="form-label" >Correo electronico</label>
+  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="ejemplo@hotmail.com" >
+  <div id="emailHelp" class="form-text">Nunca compartiremos su correo electronico</div>
+</div>
+
+
+
+<div class="mb-3"  style="align-items: center; width: 750px;  height: 80px; margin-top: 5px;">
+  <label for="exampleInputPassword1" class="form-label" style="width: 40%; margin-top: 10px;">Contraseña</label>
+  <input type="password" class="form-control" id="exampleInputPassword1" >
+</div>
+
+
+<div class="mb-3"  style="align-items: center; width: 750px;  height: 80px;">
+    <label for="exampleInputPassword1" class="form-label" style="width: 40%;">Repita la contraseña</label>
+    <input type="password" class="form-control" id="exampleInputPassword1" >
+  </div>
+
+
+
+
+  <div style="text-align: center;">
+    <button type="submit" class="btn btn-primary" routerLink="/inicio">Registrarse</button>
+  </div>
+  
+
+
+
+</form>
+
+</div>
+         
+  </body>

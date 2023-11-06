@@ -1,0 +1,12 @@
+:host ::ng-deep .p-menubar{
+ background: white;
+}
+
+
+:host ::ng-deep .p-menubar .p-menuitem-text{
+  color: black;
+  justify-content: center;
+} 
+
+
+

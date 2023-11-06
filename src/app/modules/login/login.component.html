@@ -1,0 +1,87 @@
+
+<body>
+  
+  <!--<nav class="navbar bg-body-tertiary"  data-bs-theme="dark">
+    <div class="container-fluid">
+        <a class="navbar-brand"  style="color: rgb(221, 221, 221);">Reseñas turisticas</a> 
+    </div>
+  </nav> -->
+
+  <div class="card" style="border: solid 2px;">
+    <p-menubar [model]="items">
+      <ng-template pTemplate="start">
+        <span style="text-align: center; color: black;"> RESEÑAS TURISTICAS </span>
+      </ng-template>
+    </p-menubar>
+  </div>
+
+  <h1 class="display-1">Iniciar Sesion</h1>
+
+  
+    <div style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+
+        <form>
+          <!-- ingresar email y contrasenia-->
+
+          <div  style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+            <div class="mb-3" >
+              <label for="exampleInputEmail1" class="form-label" style="display: flex; justify-content: start; font-family: sans-serif;">Correo electronico</label
+              >
+              <input
+                type="email"
+                class="form-control"
+                id="exampleInputEmail1"
+                aria-describedby="emailHelp"
+                required="true"
+                placeholder="ejemplo@hotmail.com"
+                
+              />
+              <div id="emailHelp" class="form-text" style="font-family: sans-serif;">
+                Nunca compartiremos su correo electronico
+              </div>
+            </div>
+          </div>
+          
+
+
+          <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; margin-top: 50px;">
+            <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label" style="font-family: sans-serif;" >Contraseña</label>
+        
+              <input
+                type="password"
+                class="form-control col"
+                id="exampleInputPassword1"
+                required="true"
+              />
+
+              <button (click)="mostrarClave()" id="password" type="button">
+                <span class="fa fa-eye-slash icon col"></span>
+              </button>
+            </div>
+
+          </div>
+
+          
+
+
+            <div style="justify-content: center; text-align: center;" >
+                  <button type="submit" class="btn btn-primary submit" routerLink="/Inicio">Iniciar Sesion</button>
+
+                  <button
+                    type="button"
+                    class="btn btn-light button"
+                    routerLink="/registrarse"
+                  >
+                    Registrarse
+                  </button>
+
+            </div>
+          
+      </form>
+
+    </div>
+
+
+      
+</body>
