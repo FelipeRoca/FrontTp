@@ -35,6 +35,8 @@ import { HttpClient } from '@angular/common/http';
  styleUrls: ['./mis-res.component.css']
 })
 
+
+
 export class MisResComponent implements OnInit{
 review: any;
 
@@ -52,7 +54,7 @@ review: any;
 
  deleteReview(reviewId: number): void {
     this.http.delete(`http://localhost:3001/reviews/${reviewId}`).subscribe(() => {
-      console.log(`Review con ID ${reviewId} fue eliminada .`);
+      alert(`Review con ID ${reviewId} fue eliminada .`);
       this.ngOnInit();
     });
  }
@@ -60,4 +62,9 @@ review: any;
  private resServiceService = inject(ResServiceService)
 
  public reviews?:any
+
+
 }
+
+
+

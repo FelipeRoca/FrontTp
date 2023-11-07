@@ -1,12 +1,12 @@
-<body style="background-color: rgb(221, 221, 221); display: block; height: 120vh;">  
+<body style="background-color: #f1f1f1; display: block; height: 120vh;">  
   <nav class="navbar bg-body-tertiary"  data-bs-theme="dark">
     <div class="container-fluid">
-        <a class="navbar-brand"  style="color: rgb(221, 221, 221);">Reseñas turisticas</a> 
+        <a class="navbar-brand"  style="color: #f1f1f1;">Reseñas turisticas</a> 
     </div>
   </nav>
 
     <div style="text-align: center; margin-top: 20px;">    <!-- titulo-->
-        <h1>Redacte su reseña!</h1>
+        <h1 style="color: #135B9E">Redacte su reseña!</h1>
     </div>
 
     <form [formGroup]="myForm" (ngSubmit)="onFormSubmit()" style="margin: 0 auto; display: flex; flex-direction: column; justify-content: center; align-items: center; margin-top: 50px;">        <!-- formulario-->
@@ -219,12 +219,12 @@
             
         </div>
     
-        <div>
+        <!-- <div>
             <div class="mb-3" style="width: 600px; text-align: center; margin-top: 50px;">
                 <label for="formFileMultiple" class="form-label">Seleccionar imagenes</label>
                 <input class="form-control" type="file" id="formFileMultiple" multiple>
               </div>
-        </div>
+        </div> -->
 
 
         <div class="mb-3" style="width: 600px; text-align: center; margin-top: 50px; ">
