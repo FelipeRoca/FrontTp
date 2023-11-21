@@ -1,9 +1,5 @@
 <body style="background-color: #f1f1f1; display: block; height: 110vh;">  
-  <!--<nav class="navbar bg-body-tertiary"  data-bs-theme="dark">
-    <div class="container-fluid">
-        <a class="navbar-brand"  style="color: rgb(221, 221, 221);">Reseñas turisticas</a> 
-    </div>
-  </nav> -->
+
 
   <div class="card" style="border: solid 2px;">
     <p-menubar [model]="items">
@@ -18,24 +14,28 @@
     <h1 class="display-1" style="text-align: center; font-family: sans-serif; margin-top: 20px; color: #135B9E; font-size: 80px;">Registrarse</h1>
   
     <div class="form-floating" style="align-items: center; width: 750px; height: 80px; margin-top: 50px;" class="mx-auto">
-      <textarea class="form-control" placeholder="Ingrese su nombre" id="floatingTextarea" formControlName="name"></textarea>
       <label for="floatingTextarea">Nombre y Apellido</label>
+      <input class="form-control" placeholder="Ingrese su nombre" id="floatingTextarea" formControlName="name">
+      <p customLabel [isTouched]="myForm.get('name')?.touched" [errors]="myForm.get('name')?.errors"></p>
     </div>
   
     <div class="mb-3" style="align-items: center; width: 750px; height: 80px;" class="mx-auto">
       <label for="exampleInputEmail1" class="form-label">Correo electrónico</label>
       <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="ejemplo@hotmail.com" formControlName="email">
       <div id="emailHelp" class="form-text">Nunca compartiremos su correo electrónico</div>
+      <p customLabel [isTouched]="myForm.get('email')?.touched" [errors]="myForm.get('email')?.errors"></p>
     </div>
   
     <div class="mb-3" style="align-items: center; width: 750px; height: 80px; margin-top: 5px;" class="mx-auto">
       <label for="exampleInputPassword1" class="form-label" style="width: 40%; margin-top: 10px;">Contraseña</label>
       <input type="password" class="form-control" id="exampleInputPassword1" formControlName="password">
+      <p customLabel [isTouched]="myForm.get('password')?.touched" [errors]="myForm.get('password')?.errors"></p>
     </div>
   
     <div class="mb-3" style="align-items: center; width: 750px; height: 80px;" class="mx-auto">
       <label for="exampleInputPassword2" class="form-label" style="width: 40%;">Repita la contraseña</label>
-      <input type="password" class="form-control" id="exampleInputPassword2">
+      <input type="password" class="form-control" id="exampleInputPassword2" formControlName="password2">
+      <p customLabel [isTouched]="myForm.get('password2')?.touched" [errors]="myForm.get('password2')?.errors"></p>
     </div>
   
     <div style="text-align: center;">

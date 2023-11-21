@@ -3,6 +3,7 @@ import { PostReview } from '../interfaces/review.interface';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ResServiceService } from '../services/red-res-service';
 import { Router } from '@angular/router';
+import { AuthService } from '../services/auth.service';
 
 
 @Component({
@@ -19,6 +20,7 @@ export class RedactarComponent {
   private fb = inject(FormBuilder);
   private reviewService = inject(ResServiceService);
   private router = inject(Router);
+  private authService = inject(AuthService);
 
   //Reactive Form
   public myForm: FormGroup = this.fb.group({
@@ -38,13 +40,14 @@ export class RedactarComponent {
     }
 
     this.review = this.myForm.value
-    this.review!.userId= "1"
+
+    if (this.authService.currentUser()) this.review!.userId = this.authService.currentUser()!.id;
     
     this.reviewService.postReviews(this.review!)
       .subscribe({
         next: (res) => {
           alert(`La review se cargo correctamente`);
-          this.router.navigateByUrl('/mis-res');
+          this.router.navigateByUrl('/inicio');
         },
         error: (error) => {
           console.log(error);

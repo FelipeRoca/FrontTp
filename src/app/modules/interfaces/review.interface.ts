@@ -5,6 +5,5 @@ export interface PostReview {
     city: string;
     description: string;
     stars: string;
-    userId: string
-
+    userId: number
 }

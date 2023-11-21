@@ -13,7 +13,8 @@ import { BuscarResComponent } from './modules/buscar-res/buscar-res.component';
 import { MisResComponent } from './modules/mis-res/mis-res.component';
 import { MenubarModule } from 'primeng/menubar';
 import {HttpClientModule} from '@angular/common/http';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CustomLabelDirective } from './modules/directives/custom-label.directive';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     RedactarComponent,
     BuscarResComponent,
     MisResComponent,
-    LoginComponent
+    CustomLabelDirective,
   ],
   imports: [
     BrowserModule,
@@ -33,8 +34,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
-
+    FormsModule,
+    ReactiveFormsModule,
+    // CustomLabelDirective,
   ],
   providers: [],
   bootstrap: [AppComponent]

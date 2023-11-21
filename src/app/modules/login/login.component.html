@@ -1,11 +1,6 @@
 
 <body>
   
-  <!--<nav class="navbar bg-body-tertiary"  data-bs-theme="dark">
-    <div class="container-fluid">
-        <a class="navbar-brand"  style="color: rgb(221, 221, 221);">Reseñas turisticas</a> 
-    </div>
-  </nav> -->
 
   <div class="card" style="border: solid 2px;">
     <p-menubar [model]="items">
@@ -20,21 +15,20 @@
   
     <div style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
 
-        <form>
-          <!-- ingresar email y contrasenia-->
+        <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+        ingresar email y contrasenia
 
           <div  style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
             <div class="mb-3" >
               <label for="exampleInputEmail1" class="form-label" style="display: flex; justify-content: start; font-family: sans-serif;">Correo electronico</label
               >
               <input
-                type="email"
+                type="text"
                 class="form-control"
                 id="exampleInputEmail1"
                 aria-describedby="emailHelp"
-                required="true"
                 placeholder="ejemplo@hotmail.com"
-                
+                formControlName="email"
               />
               <div id="emailHelp" class="form-text" style="font-family: sans-serif;">
                 Nunca compartiremos su correo electronico
@@ -49,13 +43,13 @@
               <label for="exampleInputPassword1" class="form-label" style="font-family: sans-serif;" >Contraseña</label>
         
               <input
-                type="password"
+                [type]="password()"
                 class="form-control col"
                 id="exampleInputPassword1"
-                required="true"
+                formControlName="password"
               />
 
-              <button (click)="mostrarClave()" id="password" type="button">
+              <button (click)="onShow()" id="password" type="button">
                 <span class="fa fa-eye-slash icon col"></span>
               </button>
             </div>
@@ -66,7 +60,7 @@
 
 
             <div style="justify-content: center; text-align: center;" >
-                  <button type="submit" class="btn btn-primary submit" routerLink="/Inicio">Iniciar Sesion</button>
+                  <button type="submit" class="btn btn-primary submit">Iniciar Sesion</button>
 
                   <button
                     type="button"
@@ -85,3 +79,5 @@
 
       
 </body>
+
+
