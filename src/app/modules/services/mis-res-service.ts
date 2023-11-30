@@ -14,5 +14,7 @@ export class ResServiceService {
       // Modifica la URL para incluir el filtro por userId
       return this.http.get(`${this.baseUrl}/reviews/usuario/${userId}`);
     }
+
+
   }
 

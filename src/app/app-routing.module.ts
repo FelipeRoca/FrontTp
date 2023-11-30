@@ -7,6 +7,7 @@ import { RedactarComponent } from './modules/redactar/redactar.component';
 import { InicioComponent } from './modules/inicio/inicio.component';
 import { BuscarResComponent } from './modules/buscar-res/buscar-res.component';
 import { MisResComponent } from './modules/mis-res/mis-res.component';
+import { ModifyReviewComponent } from './modules/modify-review/modify-review.component';
 
 const routes: Routes = [
     /*{path:'', redirectTo:'/welcome', pathMatch:'full'},*/
@@ -17,7 +18,10 @@ const routes: Routes = [
     {path: 'redactar', component:RedactarComponent},
     {path: 'inicio', component:InicioComponent},
     {path: 'buscar', component:BuscarResComponent},
-    {path: 'mis-res', component:MisResComponent}
+    {path: 'mis-res', component:MisResComponent},
+    { path: 'modify/:id', component: ModifyReviewComponent },
+
+
 
 ];
 

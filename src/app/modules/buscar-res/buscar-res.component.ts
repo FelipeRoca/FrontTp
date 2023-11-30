@@ -22,14 +22,20 @@ export class BuscarResComponent implements OnInit{
 
   public reviews:any=[]
 
-  buscarReview(cityName: any): void {
-    console.log(cityName)
-    this.buscarResService.getReviewsByCityName(cityName.value).subscribe(reviews => {
-      this.reviews = reviews
-      console.log(this.reviews) 
+   buscarReview(cityName: any): void {
+     console.log(cityName)
+     this.buscarResService.getReviewsByCityName(cityName.value).subscribe(reviews => {
+       this.reviews = reviews
+       console.log(this.reviews) 
 
     })
-}
+ }
+
+
+
+
+
+
 
 mostrarInput(valor: any){
   this.buscarResService.getReviewsByCityName(valor.value).subscribe(reviews => {

@@ -57,7 +57,8 @@ export class LoginComponent {
    ngOnInit() {
         this.items = [
             {
-                label: 'Home',
+                label: 'Inicio',
+                routerLink: ['/inicio'],
                 icon: 'pi pi-fw pi-file',
                 items: [] 
             },

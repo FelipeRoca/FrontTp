@@ -30,10 +30,11 @@ export class AuthService {
 
   }
 
+
   private setAuthentication(user: User, token: string): boolean {
     this._currentUser.set(user);
     this._authStatus.set(AuthStatus.authenticated);
-    // Almacenamos el token en el localStorage para poder recuperar los datos del usuario frente a un reload del navegador
+    // Almacenamos el token en el localStorage para poder recuperar los datos del usuario en caso de una recarga del navegador
     localStorage.setItem('token', token);
 
     return true;

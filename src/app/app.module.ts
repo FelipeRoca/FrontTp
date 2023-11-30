@@ -15,6 +15,8 @@ import { MenubarModule } from 'primeng/menubar';
 import {HttpClientModule} from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CustomLabelDirective } from './modules/directives/custom-label.directive';
+import { ModifyReviewComponent } from './modules/modify-review/modify-review.component';
+
 
 @NgModule({
   declarations: [
@@ -27,6 +29,7 @@ import { CustomLabelDirective } from './modules/directives/custom-label.directiv
     BuscarResComponent,
     MisResComponent,
     CustomLabelDirective,
+    ModifyReviewComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +39,8 @@ import { CustomLabelDirective } from './modules/directives/custom-label.directiv
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    // CustomLabelDirective,
+
+
   ],
   providers: [],
   bootstrap: [AppComponent]
