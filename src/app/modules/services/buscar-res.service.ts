@@ -10,7 +10,9 @@ export class BuscarResService {
   
     constructor(private http: HttpClient) { }
   
-    getReviewsByCityName(cityName: string): Observable<any> {
-      return this.http.get(`${this.baseUrl}/reviews/city/${cityName}`);
+    getReviewsByCityName(cityName: string): Observable<any[]> {
+      return this.http.get<any[]>(`${this.baseUrl}/reviews/city/${cityName}`);
     }
   }
+
+

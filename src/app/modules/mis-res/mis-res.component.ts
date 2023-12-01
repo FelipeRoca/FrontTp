@@ -7,6 +7,7 @@ import { DelResServiceService } from '../services/del-res-service';
 import { HttpClient } from '@angular/common/http';
 import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
+import { MenuItem } from 'primeng/api';
 
 
 @Component({
@@ -30,22 +31,39 @@ selectedReviewIndex?: number;
     private authService: AuthService,
     private route : Router
  ) {}
+ items: MenuItem[] | undefined;
 
  ngOnInit(): void {
+  this.items = [
+    {
+        label: 'Inicio',
+        routerLink: ['/inicio'],
+        icon: 'pi pi-fw pi-file',
+        items: [] 
+    },
+    {
+        label: 'Iniciar Sesion',
+        routerLink: ['/iniciar-sesion'],
+        icon: 'pi pi-fw pi-user',
+        items: []
+    },
+    {
+        label: 'Registrarse',
+        routerLink: ['/registrarse'],
+        icon: 'pi pi-fw pi-calendar',
+        items: []
+    },
+];
    let userId = this.authService.currentUser()!.id;
 
    this.resServiceService.getReviewsByUserId(userId).subscribe(reviews => {
    this.reviews = reviews
    console.log(this.reviews)
    })
+
+   
  }
 
-//  deleteReview(reviewId: number): void {
-//     this.http.delete(`http://localhost:3001/reviews/${reviewId}`).subscribe(() => {
-//       alert(`Review con ID ${reviewId} fue eliminada .`);
-//       this.ngOnInit();
-//     });
-//  }
 
 deleteReview(): void {
   if (this.selectedReview) {

@@ -63,25 +63,6 @@ export class LoginComponent {
                 items: [] 
             },
             {
-              icon: 'pi pi-fw pi-pencil',
-              disabled: true,
-              label: 'Reseñas',
-                items: [
-                    {
-                        label: 'Crear Reseña',
-                        icon: 'pi pi-fw pi-align-left'
-                    },
-                    {
-                        label: 'Leer Reseñas',
-                        icon: 'pi pi-fw pi-align-right'
-                    },
-                    {
-                        label: 'Eliminar Reseña',
-                        icon: 'pi pi-fw pi-align-center'
-                    },
-                ]
-            },
-            {
                 label: 'Iniciar Sesion',
                 routerLink: ['.'],
                 icon: 'pi pi-fw pi-user',

@@ -1,10 +1,12 @@
 <body style="background-color: #f1f1f1; display: block; height: 120vh;">  
-  <nav class="navbar bg-body-tertiary"  data-bs-theme="dark">
-    <div class="container-fluid">
-        <a class="navbar-brand"  style="color: #f1f1f1;">Reseñas turisticas</a> 
-    </div>
-  </nav>
 
+	<div class="card" style="border: solid 2px;">
+		<p-menubar [model]="items">
+		  <ng-template pTemplate="start">
+			<span style="text-align: center; color: black;"> RESEÑAS TURISTICAS </span>
+		  </ng-template>
+		</p-menubar>
+	  </div>
     <div style="text-align: center; margin-top: 20px;">    <!-- titulo-->
         <h1 style="color: #135B9E">Redacte su reseña!</h1>
     </div>
@@ -219,12 +221,6 @@
             
         </div>
     
-        <!-- <div>
-            <div class="mb-3" style="width: 600px; text-align: center; margin-top: 50px;">
-                <label for="formFileMultiple" class="form-label">Seleccionar imagenes</label>
-                <input class="form-control" type="file" id="formFileMultiple" multiple>
-              </div>
-        </div> -->
 
 
         <div class="mb-3" style="width: 600px; text-align: center; margin-top: 50px; ">

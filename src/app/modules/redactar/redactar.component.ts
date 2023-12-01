@@ -5,6 +5,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ResServiceService } from '../services/red-res-service';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
+import { MenuItem } from 'primeng/api';
 
 
 @Component({
@@ -13,7 +14,7 @@ import { AuthService } from '../services/auth.service';
   styleUrls: ['./redactar.component.css']
 })
 export class RedactarComponent {
-
+  items: MenuItem[] | undefined;
   ciudad!: string;
   review?: PostReview;
 
@@ -30,6 +31,29 @@ export class RedactarComponent {
     description: ['', [Validators.required]],
     stars: ['', [Validators.required]]
   })
+
+  ngOnInit(){
+    this.items = [
+      {
+          label: 'Inicio',
+          routerLink: ['/inicio'],
+          icon: 'pi pi-fw pi-file',
+          items: [] 
+      },
+      {
+          label: 'Iniciar Sesion',
+          routerLink: ['/iniciar-sesion'],
+          icon: 'pi pi-fw pi-user',
+          items: []
+      },
+      {
+          label: 'Registrarse',
+          routerLink: ['/registrarse'],
+          icon: 'pi pi-fw pi-calendar',
+          items: []
+      },
+  ];
+  }
 
   // Métodos
   onFormSubmit() {

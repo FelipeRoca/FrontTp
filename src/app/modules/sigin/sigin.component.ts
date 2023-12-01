@@ -45,28 +45,10 @@ export class SiginComponent {
   ngOnInit() {
     this.items = [
         {
-            label: 'Home',
+            label: 'Inicio',
+            routerLink: ['/inicio'],
             icon: 'pi pi-fw pi-file',
             items: [] 
-        },
-        {
-          icon: 'pi pi-fw pi-pencil',
-          disabled: true,
-          label: 'Reseñas',
-            items: [
-                {
-                    label: 'Crear Reseña',
-                    icon: 'pi pi-fw pi-align-left'
-                },
-                {
-                    label: 'Leer Reseñas',
-                    icon: 'pi pi-fw pi-align-right'
-                },
-                {
-                    label: 'Eliminar Reseña',
-                    icon: 'pi pi-fw pi-align-center'
-                },
-            ]
         },
         {
             label: 'Iniciar Sesion',
