@@ -77,11 +77,12 @@ export class SiginComponent {
 
     this.authService.register(user)
       .subscribe({
-        next: () => {
+        next: (res) => {
+          alert('Usuario registrado.')
           this.router.navigateByUrl('/iniciar-sesion');
         },
         error: (error) => {
-          console.log('Error al cargar el usuario:', error);
+          console.log('Error al cargar el usuario:', error)
           alert('Error al cargar el usuario. Consulta la consola para más detalles.');
         }
       });
