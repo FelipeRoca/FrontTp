@@ -1,23 +1,23 @@
-<body style="background-color: #f1f1f1; display: block; height: 100vh;">  
+<body>  
 
-  <div class="card" style="border: solid 2px;">
+  <div class="card" >
     <p-menubar [model]="items">
       <ng-template pTemplate="start">
-        <span style="text-align: center; color: black;"> RESEÑAS TURISTICAS </span>
+        <span > RESEÑAS TURISTICAS </span>
       </ng-template>
     </p-menubar>
   </div>
 
-    <div style="margin: 0 auto; display: flex; flex-direction: column; justify-content: center; align-items: center; margin-top: 50px;">
-        <h1 style="color: #135B9E">Buscar una reseña</h1>
+    <div class="div-br" >
+        <h1 >Buscar una reseña</h1>
 
 
 
 
 
-        <div class="flex-d" style="margin-top: 50px;">
+        <div class="flex-d div-buscar">
           <div class="input-group">
-            <input #inputValue class="form-control me-2" type="text" placeholder="Ingrese una ciudad" aria-label="Search" style="width: 600px;">
+            <input #inputValue class="form-control me-2" type="text" placeholder="Ingrese una ciudad" aria-label="Search">
             <button class="btn btn-outline-success" type="submit" (click)="mostrarInput(inputValue)">Buscar</button>
           </div>
         </div>
@@ -26,7 +26,7 @@
 
 
     
-    <div style="width: 90vw; margin-top: 50px;" class="table table-striped table-bordered table-condensed">
+    <div  class="table table-striped table-bordered table-condensed">
       <table class="table">
          <thead>
            <tr>

@@ -1,0 +1,40 @@
+body {
+  background-color: white;
+  display: block;
+  height: 100vh;
+}
+
+.card{
+  border: solid 2px;
+}
+
+.card span{
+  text-align: center;
+  color: black;
+}
+
+.div-br {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.div-buscar {
+  margin-top: 50px;
+}
+
+.form-control {
+  width: 600px;
+}
+
+.table {
+  width: 90vw;
+  margin-top: 50px;
+}
+
+h1 {
+  color: #135B9E;
+}

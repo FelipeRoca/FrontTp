@@ -1,0 +1,83 @@
+body {
+  background-color: white;
+  display: block;
+  height: 110vh;
+}
+
+.card {
+  border: solid 2px;
+}
+
+.card span {
+  text-align: center;
+  color: black;
+}
+
+h1 {
+  text-align: center;
+  font-family: sans-serif;
+  margin-top: 20px;
+  color: #135B9E;
+  font-size: 80px;
+}
+
+.sigin-form {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.sigin-name {
+  align-items: center;
+  width: 750px;
+  height: 80px;
+  margin-top: 50px;
+}
+
+.sigin-surname {
+  align-items: center;
+  width: 750px;
+  height: 80px;
+}
+
+form {
+  margin-top: 5px;
+  align-items: center;
+  width: 750px;
+  height: 80px;
+}
+
+.mb-3 {
+  align-items: center;
+  width: 750px;
+  height: 80px;
+}
+
+.sigin-password {
+  align-items: center;
+  width: 750px;
+  height: 80px;
+  margin-top: 5px;
+}
+
+.label-p {
+  width: 40%;
+  margin-top: 40px;
+}
+
+.label-rp {
+  width: 40%;
+}
+
+.boton-reg {
+  text-align: center;
+}
+
+.sigin-rp{
+  align-items: center;
+  width: 750px;
+  height: 80px;
+  margin-top: 40px;
+}

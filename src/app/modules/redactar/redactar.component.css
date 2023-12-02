@@ -1,0 +1,57 @@
+body {
+  background-color: white;
+  display: block;
+  height: 120vh;
+}
+
+.card{
+  border: solid 2px;
+}
+
+.card span{
+  text-align: center;
+  color: black;
+}
+
+.container-fluid {
+  color: white;
+}
+
+.titulo {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.redactar-form {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.div-list {
+  width: 600px;
+  text-align: center;
+}
+
+.div-ciudad {
+  width: 600px;
+  text-align: center;
+  margin-top: 50px;
+}
+
+.mb-3 {
+  width: 600px;
+  text-align: center;
+  margin-top: 50px;
+}
+
+.boton-resena {
+  text-align: center;
+  margin-top: 40px;
+}
+h1 {
+  color: #135B9E;
+}
