@@ -60,10 +60,18 @@
             <button type="button" class="btn btn-secondary" (click)="closeModal()">Cerrar</button>
             <button type="button" class="btn btn-danger" (click)="deleteReview()">Eliminar reseña</button>
           </div>
-        </div>
-
-      
+        </div>     
   
+  </div>
+
+  <div *ngIf="sesion" class="custom-modal"> 
+    <div class="modal-content">
+      <h2>Debe iniciar sesión</h2>
+      <p>Para realizar esta acción, por favor inicie sesión.</p>
+      <div class="modal-footer">
+        <a routerLink="/login" class="btn btn-primary" routerLink="/iniciar-sesion">Iniciar Sesión</a>
+      </div>
+    </div>
   </div>
 
 </body>

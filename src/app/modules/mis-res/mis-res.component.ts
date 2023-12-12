@@ -21,6 +21,7 @@ import { MenuItem } from 'primeng/api';
 export class MisResComponent implements OnInit{
 review: any;
 modalSwitch: boolean = false;
+sesion: boolean = false;
 selectedReview: any;
 selectedReviewIndex?: number;
   router: any;
@@ -54,12 +55,21 @@ selectedReviewIndex?: number;
         items: []
     },
 ];
+
+const currentUser = this.authService.currentUser();
+if (!currentUser) {
+  this.sesion = true;
+}
+
+
    let userId = this.authService.currentUser()!.id;
 
    this.resServiceService.getReviewsByUserId(userId).subscribe(reviews => {
    this.reviews = reviews
    console.log(this.reviews)
    })
+
+
 
    
  }

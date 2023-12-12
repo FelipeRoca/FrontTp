@@ -11,7 +11,7 @@ import { ModifyReviewComponent } from './modules/modify-review/modify-review.com
 
 const routes: Routes = [
     /*{path:'', redirectTo:'/welcome', pathMatch:'full'},*/
-    {path:'', redirectTo:'/iniciar-sesion', pathMatch:'full'},
+    {path:'', redirectTo:'/inicio', pathMatch:'full'},
     {path: 'iniciar-sesion', component:LoginComponent},
     {path: 'registrarse', component:SiginComponent},
     {path: 'welcome', component:WelcomeComponent},

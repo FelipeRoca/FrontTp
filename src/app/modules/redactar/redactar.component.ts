@@ -17,6 +17,7 @@ export class RedactarComponent {
   items: MenuItem[] | undefined;
   ciudad!: string;
   review?: PostReview;
+  sesion: boolean = false;
 
   // Inyecciones
   private fb = inject(FormBuilder);
@@ -53,6 +54,11 @@ export class RedactarComponent {
           items: []
       },
   ];
+
+  const currentUser = this.authService.currentUser();
+if (!currentUser) {
+  this.sesion = true;
+}
   }
 
   // Métodos
@@ -66,6 +72,7 @@ export class RedactarComponent {
     const currentUser = this.authService.currentUser();
     if (!currentUser) {
       alert("Debe iniciar sesión para realizar una reseña");
+      this.router.navigateByUrl('/iniciar-sesion');
       return;
     }
 
