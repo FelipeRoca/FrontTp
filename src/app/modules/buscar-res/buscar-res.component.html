@@ -1,4 +1,7 @@
-<body style="background-color: #f1f1f1; display: block; height: 100vh;">  
+<script src="https://unpkg.com/leaflet@1.0.2/dist/leaflet.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.2/dist/leaflet.css" />
+
+<body style="background-color: #f1f1f1; display: block; height: 160vh;">  
 
   <div class="card" style="border: solid 2px;">
     <p-menubar [model]="items">
@@ -21,6 +24,7 @@
             <button class="btn btn-outline-success" type="submit" (click)="mostrarInput(inputValue)">Buscar</button>
           </div>
         </div>
+
         
         
 
@@ -50,6 +54,16 @@
            </tr>
          </tbody>
       </table>
+      <div style="align-items: center; text-align: center;">
+        <button type="button" class="btn btn-primary btn-lg" (click)="restablecerCiudades()">Restablecer Ciudades</button>
+      </div>
+
+<div  style="display: block; height: 50vh; width: 50vw;">
+      <div style="width: 90vw; margin-top: 50px;">
+        <div id="map"></div>
+      </div>
+
+    </div>
      </div>
 
 
