@@ -1,44 +1,44 @@
-<body style="background-color: #f1f1f1; display: block; height: 110vh;">  
+<body>  
 
 
-  <div class="card" style="border: solid 2px;">
+  <div class="card" >
     <p-menubar [model]="items">
       <ng-template pTemplate="start">
-        <span style="text-align: center; color: black;"> RESEÑAS TURISTICAS </span>
+        <span > RESEÑAS TURISTICAS </span>
       </ng-template>
     </p-menubar>
   </div>
   
   
   <form [formGroup]="myForm" (ngSubmit)="onFormSubmit()" class="mx-auto">
-    <h1 class="display-1" style="text-align: center; font-family: sans-serif; margin-top: 20px; color: #135B9E; font-size: 80px;">Registrarse</h1>
+    <h1 class="display-1" >Registrarse</h1>
   
-    <div class="form-floating" style="align-items: center; width: 750px; height: 80px; margin-top: 50px;" class="mx-auto">
+    <div class="form-floating sigin-name" class="mx-auto">
       <label for="floatingTextarea">Nombre y Apellido</label>
       <input class="form-control" placeholder="Ingrese su nombre" id="floatingTextarea" formControlName="name">
       <p customLabel [isTouched]="myForm.get('name')?.touched" [errors]="myForm.get('name')?.errors"></p>
     </div>
   
-    <div class="mb-3" style="align-items: center; width: 750px; height: 80px;" class="mx-auto">
+    <div class="mb-3 sigin-surname"  class="mx-auto">
       <label for="exampleInputEmail1" class="form-label">Correo electrónico</label>
       <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="ejemplo@hotmail.com" formControlName="email">
       <div id="emailHelp" class="form-text">Nunca compartiremos su correo electrónico</div>
       <p customLabel [isTouched]="myForm.get('email')?.touched" [errors]="myForm.get('email')?.errors"></p>
     </div>
   
-    <div class="mb-3" style="align-items: center; width: 750px; height: 80px; margin-top: 5px;" class="mx-auto">
-      <label for="exampleInputPassword1" class="form-label" style="width: 40%; margin-top: 40px;">Contraseña</label>
+    <div class="mb-3 sigin-password"  class="mx-auto">
+      <label for="exampleInputPassword1" class="form-label label-p" >Contraseña</label>
       <input type="password" class="form-control" id="exampleInputPassword1" formControlName="password">
       <p customLabel [isTouched]="myForm.get('password')?.touched" [errors]="myForm.get('password')?.errors"></p>
     </div>
   
-    <div class="mb-3" style="align-items: center; width: 750px; height: 80px; margin-top: 40px;" class="mx-auto">
-      <label for="exampleInputPassword2" class="form-label" style="width: 40%;">Repita la contraseña</label>
+    <div class="mb-3 sigin-rp"  class="mx-auto">
+      <label for="exampleInputPassword2" class="form-label label-rp" >Repita la contraseña</label>
       <input type="password" class="form-control" id="exampleInputPassword2" formControlName="password2">
       <p customLabel [isTouched]="myForm.get('password2')?.touched" [errors]="myForm.get('password2')?.errors"></p>
     </div>
   
-    <div style="text-align: center;">
+    <div class="boton-reg">
       <button type="submit" class="btn btn-primary" >Registrarse</button>
     </div>
   </form>

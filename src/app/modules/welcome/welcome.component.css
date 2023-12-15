@@ -8,5 +8,31 @@
   justify-content: center;
 } 
 
+body{
+  background-color: rgb(221, 221, 221); 
+  display: block; 
+  height: 100vh
+}
 
+.card span{
+  text-align: center; color: black;
+}
 
+.contenedor{
+  position: relative; 
+  display: inline-block; 
+  text-align: center
+}
+
+.imagen {
+  opacity: 0.3; 
+  height: 93.5vh; 
+  width: 100vw
+}
+
+.centrado{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

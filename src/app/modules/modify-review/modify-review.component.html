@@ -1,28 +1,28 @@
-<body style="background-color: #f1f1f1; display: block; height: 120vh;">  
-    <div class="card" style="border: solid 2px;">
+<body >  
+    <div class="card" >
         <p-menubar [model]="items">
           <ng-template pTemplate="start">
-            <span style="text-align: center; color: black;"> RESEÑAS TURISTICAS </span>
+            <span > RESEÑAS TURISTICAS </span>
           </ng-template>
         </p-menubar>
       </div>
   
-      <div style="text-align: center; margin-top: 20px;">    <!-- titulo-->
-          <h1 style="color: #135B9E">Modifique su reseña!</h1>
+      <div class="div-titulo">    <!-- titulo-->
+          <h1 >Modifique su reseña!</h1>
       </div>
   
-      <form  [formGroup]="myForm" (ngSubmit)="onFormSubmit()" style="margin: 0 auto; display: flex; flex-direction: column; justify-content: center; align-items: center; margin-top: 50px;">        <!-- formulario-->
+      <form  [formGroup]="myForm" (ngSubmit)="onFormSubmit()" >        <!-- formulario-->
  
   
-          <div class="mb-3" style="width: 600px; text-align: center; margin-top: 50px; ">
+          <div class="mb-3 div-mr" >
               <label for="exampleFormControlTextarea1" class="form-label">Modifique la reseña, cuentenos que tal anduvo esa estadia!</label>
               <input class="form-control" id="exampleFormControlTextarea1" rows="3" formControlName="description">
           </div>
           
   
 
-          <div style="width: 600px; text-align: center; margin-top: 50px;">
-            <div style="margin-top: 10px;">
+          <div class="div-mr" >
+            <div class="div-stars">
                 <p>Cambie las estrellas de puntuacion para este sitio</p>
               </div>
             <div class="form-floating">
@@ -41,7 +41,7 @@
   
   
   
-          <div style=" text-align: center; margin-top: 40px; ">
+          <div class="boton">
               <button type="submit" class="btn btn-outline-primary" >Guardar reseña</button>
           </div>
   

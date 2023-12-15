@@ -4,6 +4,15 @@ body{
   height: 100vh;
 }
 
+.card{
+  border: solid 2px;
+}
+
+.card span{
+  text-align: center; 
+  color: black;
+}
+
 h1{
   text-align: center;
   color: #135B9E;
@@ -17,7 +26,9 @@ form{
 }
 
 .mb-3{
-  align-items: center; width: 750px;  height: 80px;
+  align-items: center; 
+  width: 750px;  
+  height: 80px;
   
 }
 
@@ -38,4 +49,32 @@ button span{
   font-size: 25px;
 }
 
+.f-login {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 
+.f-login-password {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.form-label {
+  display: flex;
+  justify-content: start;
+  font-family: sans-serif;
+}
+
+#emailHelp {
+  font-family: sans-serif;
+}
+
+.botones {
+  justify-content: center;
+  text-align: center;
+}

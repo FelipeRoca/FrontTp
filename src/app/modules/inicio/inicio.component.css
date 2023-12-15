@@ -1,0 +1,44 @@
+body{
+    background-color:#f1f1f1; 
+    display: block;
+    height: 100vh;
+}
+
+.card{
+    border: solid 2px;
+}
+
+.card span {
+    text-align: center;
+    color:black;
+}
+
+.display-1{
+    text-align: center; 
+    margin-top: 20px; 
+    margin-bottom: 100px; 
+    text-decoration: double; 
+    font-weight: 500; 
+    color: #135B9E
+}
+
+.div-cards{
+    text-align: center; 
+    align-items: center; 
+    display: flex; 
+    justify-content: center;
+}
+
+.card-rr{
+    width: 18rem;
+}
+
+.card-br{
+    width: 18rem; 
+    margin-left: 50px;
+}
+
+.card-mr{
+    width: 18rem; 
+    margin-left: 50px;
+}

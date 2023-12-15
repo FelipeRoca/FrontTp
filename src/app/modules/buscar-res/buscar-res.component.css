@@ -3,3 +3,60 @@
     height: 580px;
     box-shadow: 5px 5px 5px #888;
  }
+
+ body {
+    background-color: white;
+    display: block;
+    height: 160vh;
+  }
+  
+  .card{
+    border: solid 2px;
+  }
+  
+  .card span{
+    text-align: center;
+    color: black;
+  }
+  
+  .div-br {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+  }
+  
+  .div-buscar {
+    margin-top: 50px;
+  }
+  
+  .form-control {
+    width: 600px;
+  }
+  
+  .table {
+    width: 90vw;
+    margin-top: 50px;
+  }
+  
+  h1 {
+    color: #135B9E;
+  }
+
+  .div-res-ciu{
+    align-items: center;
+    text-align: center;
+  }
+
+  .div-mapa{
+    display: block;
+    height: 50vh;
+    width: 50vh;
+  }
+
+  .div-mapa-2{
+    width: 90vw;
+    margin-top: 50px;
+  }

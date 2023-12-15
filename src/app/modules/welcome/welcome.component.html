@@ -1,42 +1,21 @@
-<body
-  style="background-color: rgb(221, 221, 221); display: block; height: 100vh"
->
-  <!--<nav class="navbar bg-body-tertiary"  data-bs-theme="dark">
-        <div class="container-fluid">
-            <a class="navbar-brand"  style="color: rgb(221, 221, 221);">Reseñas turisticas</a> 
-
-
-          <form class="d-flex" role="search">
-            <button type="button" class="btn btn-success" routerLink="/iniciar-sesion">Iniciar sesion</button>
-          </form>
-        </div>
-      </nav>
-    -->
+<body>
 
   <div class="card">
     <p-menubar [model]="items">
       <ng-template pTemplate="start">
-        <span style="text-align: center; color: black;"> RESEÑAS TURISTICAS </span>
+        <span > RESEÑAS TURISTICAS </span>
       </ng-template>
     </p-menubar>
   </div>
 
   <div
-    class="contenedor"
-    style="position: relative; display: inline-block; text-align: center"
-  >
+    class="contenedor" >
     <img
       src="https://cdn.pixabay.com/photo/2013/04/07/21/29/arc-de-triomphe-101633_640.jpg"
-      style="opacity: 0.3; height: 93.5vh; width: 100vw"
+      class="imagen"
     />
     <div
       class="centrado"
-      style="
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-      "
     >
       <h1 class="display-1">Reseñas turisticas</h1>
       <p>

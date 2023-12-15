@@ -2,10 +2,10 @@
 <body>
   
 
-  <div class="card" style="border: solid 2px;">
+  <div class="card" >
     <p-menubar [model]="items">
       <ng-template pTemplate="start">
-        <span style="text-align: center; color: black;"> RESEÑAS TURISTICAS </span>
+        <span > RESEÑAS TURISTICAS </span>
       </ng-template>
     </p-menubar>
   </div>
@@ -13,14 +13,14 @@
   <h1 class="display-1">Iniciar Sesion</h1>
 
   
-    <div style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+    <div class="f-login">
 
         <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
         ingresar email y contrasenia
 
-          <div  style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+          <div class="f-login" >
             <div class="mb-3" >
-              <label for="exampleInputEmail1" class="form-label" style="display: flex; justify-content: start; font-family: sans-serif;">Correo electronico</label
+              <label for="exampleInputEmail1" class="form-label" >Correo electronico</label
               >
               <input
                 type="text"
@@ -30,7 +30,7 @@
                 placeholder="ejemplo@hotmail.com"
                 formControlName="email"
               />
-              <div id="emailHelp" class="form-text" style="font-family: sans-serif;">
+              <div id="emailHelp" class="form-text" >
                 Nunca compartiremos su correo electronico
               </div>
             </div>
@@ -38,9 +38,9 @@
           
 
 
-          <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; margin-top: 50px;">
+          <div class="f-login-password" >
             <div class="mb-3">
-              <label for="exampleInputPassword1" class="form-label" style="font-family: sans-serif;" >Contraseña</label>
+              <label for="exampleInputPassword1" class="form-label" >Contraseña</label>
         
               <input
                 [type]="password()"
@@ -59,7 +59,7 @@
           
 
 
-            <div style="justify-content: center; text-align: center;" >
+            <div class="botones" >
                   <button type="submit" class="btn btn-primary submit">Iniciar Sesion</button>
 
                   <button

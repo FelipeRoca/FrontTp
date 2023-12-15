@@ -1,0 +1,47 @@
+body{
+    background-color: #f1f1f1; 
+    display: block; 
+    height: 120vh; 
+}
+
+.card {
+    border: solid 2px;  
+}
+
+.card span {
+    text-align: center; 
+    color: black;
+}
+
+.div-titulo{
+    text-align: center; 
+    margin-top: 20px;
+}
+
+h1{
+    color: #135B9E; 
+}
+
+.div-form{
+    margin: 0 auto; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
+    margin-top: 50px;
+}
+
+.div-mr{
+    width: 600px; 
+    text-align: center; 
+    margin-top: 50px;
+}
+
+.div-stars{
+    margin-top: 10px;  
+}
+
+.boton{
+    text-align: center; 
+    margin-top: 40px;
+}
