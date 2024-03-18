@@ -266,7 +266,25 @@
 		</div>
 	  </div>
 
-
-
+	 <!-- Modal de error -->
+<div id="completeModal" class="completeModal">
+	<div class="completeModal-content">
+	  <span class="close" (click)="closeModal()">&times;</span>
+	  <h2>Error</h2>
+	  <p>Por favor, complete todos los campos.</p>
+	  <button id="modalOkButton" (click)="closeModal()">OK</button>
+	</div>
+  </div>
+  
+  <!-- Modal de éxito -->
+  <div id="correctModal" class="correct-modal">
+	<div class="correct-modal-content">
+	  <span class="correct-close" (click)="closeCorrectModal()">&times;</span>
+	  <h2>Fantástico</h2>
+	  <p>La review se cargó correctamente.</p>
+	  <button id="modalOkButton" (click)="closeCorrectModal()">OK</button>
+	</div>
+  </div>
+  
 
 </body>

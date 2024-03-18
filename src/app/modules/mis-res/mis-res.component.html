@@ -18,7 +18,6 @@
                         <table class="table" style="width:90vw; margin-top: 50px;">
                             <thead>
                               <tr>
-                                <th scope="col" >ID reseña</th>
                                 <th scope="col" >Ciudad</th>
                                 <th scope="col">Estrellas</th>
                                 <th scope="col">Aclaracion</th>
@@ -31,8 +30,7 @@
                             </thead>
                             <tbody>                          
                                 <tr *ngFor="let review of reviews; let i = index">
-                                <th scope="row">{{review.id}}</th>
-                                <th scope="row">{{review.cityId}}</th>
+                                <th scope="row">{{review.City.name}}</th>
                                 <td>{{review.stars}}</td>
                                 <td>{{review.description}}</td>
                                 <td><button type="button" class="btn btn-primary" (click)="navigateToModify(review)">Modificar</button></td>

@@ -79,7 +79,6 @@ deleteReview(): void {
   if (this.selectedReview) {
     const reviewId = this.selectedReview.id;
     this.http.delete(`http://localhost:3001/reviews/${reviewId}`).subscribe(() => {
-      alert(`Review con ID ${reviewId} fue eliminada.`);
       this.closeModal();
       this.reviews.splice(this.selectedReviewIndex, 1); // Elimina la revisión del arreglo local
     });

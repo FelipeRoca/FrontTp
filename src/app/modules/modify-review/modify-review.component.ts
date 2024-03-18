@@ -164,12 +164,10 @@ export class ModifyReviewComponent implements OnInit {
 
     this.reviewService.putReviews(this.review).subscribe({
       next: (res) => {
-        alert('La revisión se modificó correctamente');
         this.router.navigateByUrl('/mis-res');
       },
       error: (error) => {
         console.error(error);
-        alert('Ocurrió un error al modificar la revisión.');
       }
     });
   }
