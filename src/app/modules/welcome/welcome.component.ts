@@ -15,6 +15,7 @@ export class WelcomeComponent {
             {
                 label: 'Home',
                 icon: 'pi pi-fw pi-file',
+                routerLink: '/inicio',
                 items: [] 
             },
             {
@@ -23,15 +24,13 @@ export class WelcomeComponent {
                 items: [
                     {
                         label: 'Crear Reseña',
-                        icon: 'pi pi-fw pi-align-left'
+                        icon: 'pi pi-fw pi-align-left',
+                        routerLink: '/redactar'
                     },
                     {
-                        label: 'Leer Reseñas',
-                        icon: 'pi pi-fw pi-align-right'
-                    },
-                    {
-                        label: 'Eliminar Reseña',
-                        icon: 'pi pi-fw pi-align-center'
+                        label: 'Ver mis Reseñas',
+                        icon: 'pi pi-fw pi-align-center',
+                        routerLink: '/mis-res'
                     },
                 ]
             },
@@ -47,10 +46,7 @@ export class WelcomeComponent {
                 icon: 'pi pi-fw pi-calendar',
                 items: []
             },
-            {
-                label: 'Salir',
-                icon: 'pi pi-fw pi-power-off'
-            }
+
         ];
     }
 }

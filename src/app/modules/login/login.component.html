@@ -1,7 +1,6 @@
 
-<body>
-  
 
+<body>
   <div class="card" style="border: solid 2px;">
     <p-menubar [model]="items">
       <ng-template pTemplate="start">
@@ -12,72 +11,46 @@
 
   <h1 class="display-1">Iniciar Sesion</h1>
 
-  
-    <div style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
-
-        <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
-        ingresar email y contrasenia
-
-          <div  style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
-            <div class="mb-3" >
-              <label for="exampleInputEmail1" class="form-label" style="display: flex; justify-content: start; font-family: sans-serif;">Correo electronico</label
-              >
-              <input
-                type="text"
-                class="form-control"
-                id="exampleInputEmail1"
-                aria-describedby="emailHelp"
-                placeholder="ejemplo@hotmail.com"
-                formControlName="email"
-              />
-              <div id="emailHelp" class="form-text" style="font-family: sans-serif;">
-                Nunca compartiremos su correo electronico
-              </div>
-            </div>
+  <div style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+    <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+      <div style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label" style="display: flex; justify-content: start; font-family: sans-serif;">Correo electronico</label>
+          <input
+            type="text"
+            class="form-control"
+            id="exampleInputEmail1"
+            aria-describedby="emailHelp"
+            placeholder="ejemplo@hotmail.com"
+            formControlName="email"
+          />
+          <div id="emailHelp" class="form-text" style="font-family: sans-serif;">
+            Nunca compartiremos su correo electronico
           </div>
-          
+        </div>
+      </div>
 
-
-          <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; margin-top: 50px;">
-            <div class="mb-3">
-              <label for="exampleInputPassword1" class="form-label" style="font-family: sans-serif;" >Contraseña</label>
-        
-              <input
-                [type]="password()"
-                class="form-control col"
-                id="exampleInputPassword1"
-                formControlName="password"
-              />
-
-              <button (click)="onShow()" id="password" type="button">
-                <span class="fa fa-eye-slash icon col"></span>
-              </button>
-            </div>
-
+      <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; margin-top: 50px;">
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label" style="font-family: sans-serif;">Contraseña</label>
+          <div style="display: flex; align-items: center;">
+            <input
+              [type]="getPasswordType()"
+              class="form-control col"
+              id="exampleInputPassword1"
+              formControlName="password"
+            />
+            <button (click)="onShow()" type="button" class="btn btn-outline-secondary" style="margin-left: 5px;">
+              <span class="fa" [ngClass]="passwordVisible ? 'fa fa-eye-slash' : 'fa fa-eye'"></span>
+            </button>
           </div>
+        </div>
+      </div>
 
-          
-
-
-            <div style="justify-content: center; text-align: center;" >
-                  <button type="submit" class="btn btn-primary submit">Iniciar Sesion</button>
-
-                  <button
-                    type="button"
-                    class="btn btn-light button"
-                    routerLink="/registrarse"
-                  >
-                    Registrarse
-                  </button>
-
-            </div>
-          
-      </form>
-
-    </div>
-
-
-      
+      <div style="justify-content: center; text-align: center;">
+        <button type="submit" class="btn btn-primary submit">Iniciar Sesion</button>
+        <button type="button" class="btn btn-light button" routerLink="/registrarse">Registrarse</button>
+      </div>
+    </form>
+  </div>
 </body>
-
-

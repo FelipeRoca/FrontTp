@@ -7,7 +7,6 @@
 // import { AuthService } from '../services/auth.service';
 // import { MenuItem } from 'primeng/api';
 
-
 // @Component({
 //   selector: 'app-redactar',
 //   templateUrl: './redactar.component.html',
@@ -33,108 +32,123 @@
 //     stars: ['', [Validators.required]]
 //   })
 
-//   ngOnInit(){
+//   ngOnInit() {
 //     this.items = [
 //       {
-//           label: 'Inicio',
-//           routerLink: ['/inicio'],
-//           icon: 'pi pi-fw pi-file',
-//           items: [] 
+//         label: 'Inicio',
+//         routerLink: ['/inicio'],
+//         icon: 'pi pi-fw pi-file',
+//         items: []
 //       },
 //       {
-//           label: 'Iniciar Sesion',
-//           routerLink: ['/iniciar-sesion'],
-//           icon: 'pi pi-fw pi-user',
-//           items: []
+//         label: 'Iniciar Sesion',
+//         routerLink: ['/iniciar-sesion'],
+//         icon: 'pi pi-fw pi-user',
+//         items: []
 //       },
 //       {
-//           label: 'Registrarse',
-//           routerLink: ['/registrarse'],
-//           icon: 'pi pi-fw pi-calendar',
-//           items: []
+//         label: 'Registrarse',
+//         routerLink: ['/registrarse'],
+//         icon: 'pi pi-fw pi-calendar',
+//         items: []
 //       },
-//   ];
+//     ];
 
-//   const currentUser = this.authService.currentUser();
-// if (!currentUser) {
-//   this.sesion = true;
-// }
+//     const currentUser = this.authService.currentUser();
+//     if (!currentUser) {
+//       this.sesion = true;
+//     }
 //   }
 
-//   // Métodos
+  
+//   showCompleteModal() {
+//     const modal = document.getElementById('completeModal');
+//     if (modal) {
+//       modal.style.display = "block";
+//     }
+//   }
+//   closeModal() {
+//     const modal = document.getElementById('completeModal');
+//     if (modal) {
+//       modal.style.display = "none";
+//     }
+//   }
+
+//   showCorrectModal() {
+//     const CorrectModal = document.getElementById('correctModal');
+//     if (CorrectModal) {
+//       CorrectModal.style.display = "block";
+//     }
+//   }
+//   closeCorrectModal() {
+//     const CorrectModal = document.getElementById('correctModal');
+//     if (CorrectModal) {
+//       CorrectModal.style.display = "none";
+//       this.router.navigateByUrl('/inicio');
+//     }
+//   }
+
+
+
+
 //   onFormSubmit() {
-
-
 //     if (this.myForm.invalid) {
-//       showCompleteModal() {
-//         const modal = document.getElementById('completeModal');
-//         if (modal) {
-//           modal.style.display = "block";
-//         }
-//       }
+//       this.showCompleteModal();
 //       return;
 //     }
-//     // Verifica si currentUser es nulo
+
 //     const currentUser = this.authService.currentUser();
 //     if (!currentUser) {
 //       return;
 //     }
 
-
 //     this.review = this.myForm.value;
-//     // Asigna el userId solo si currentUser no es nulo
 //     this.review!.userId = currentUser.id;
 
 //     this.reviewService.postReviews(this.review!)
 //       .subscribe({
 //         next: (res) => {
-//           alert(`La review se cargó correctamente`);
-//           this.router.navigateByUrl('/inicio');
+//           this.showCorrectModal();
 //         },
 //         error: (error) => {
 //           alert(`La review NO se cargó correctamente`);
-
 //           console.log(error);
 //         }
 //       });
 //   }
 // }
 
-
-
-
-import { Component, inject } from '@angular/core';
-import { PostReview } from '../interfaces/review.interface';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { PostReview } from '../interfaces/review.interface';
 import { ResServiceService } from '../services/red-res-service';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { MenuItem } from 'primeng/api';
+
 
 @Component({
   selector: 'app-redactar',
   templateUrl: './redactar.component.html',
   styleUrls: ['./redactar.component.css']
 })
-export class RedactarComponent {
+export class RedactarComponent implements OnInit {
   items: MenuItem[] | undefined;
-  ciudad!: string;
-  review?: PostReview;
   sesion: boolean = false;
 
-  // Inyecciones
-  private fb = inject(FormBuilder);
-  private reviewService = inject(ResServiceService);
-  private router = inject(Router);
-  private authService = inject(AuthService);
+  constructor(
+    private fb: FormBuilder,
+    private reviewService: ResServiceService,
+    private router: Router,
+    private authService: AuthService
+  ) {}
 
-  // Reactive Form
   public myForm: FormGroup = this.fb.group({
     country: ['', [Validators.required]],
     city: ['', [Validators.required]],
     description: ['', [Validators.required]],
     stars: ['', [Validators.required]]
-  })
+  });
 
   ngOnInit() {
     this.items = [
@@ -164,36 +178,34 @@ export class RedactarComponent {
     }
   }
 
-  
   showCompleteModal() {
     const modal = document.getElementById('completeModal');
     if (modal) {
-      modal.style.display = "block";
+      modal.style.display = 'block';
     }
   }
+
   closeModal() {
     const modal = document.getElementById('completeModal');
     if (modal) {
-      modal.style.display = "none";
+      modal.style.display = 'none';
     }
   }
 
   showCorrectModal() {
-    const CorrectModal = document.getElementById('correctModal');
-    if (CorrectModal) {
-      CorrectModal.style.display = "block";
+    const correctModal = document.getElementById('correctModal');
+    if (correctModal) {
+      correctModal.style.display = 'block';
     }
   }
+
   closeCorrectModal() {
-    const CorrectModal = document.getElementById('correctModal');
-    if (CorrectModal) {
-      CorrectModal.style.display = "none";
+    const correctModal = document.getElementById('correctModal');
+    if (correctModal) {
+      correctModal.style.display = 'none';
       this.router.navigateByUrl('/inicio');
     }
   }
-
-
-
 
   onFormSubmit() {
     if (this.myForm.invalid) {
@@ -206,18 +218,23 @@ export class RedactarComponent {
       return;
     }
 
-    this.review = this.myForm.value;
-    this.review!.userId = currentUser.id;
+    const reviewData = this.myForm.value;
+    const review: PostReview = {
+      userId: currentUser.id,
+      country: reviewData.country,
+      city: reviewData.city,
+      description: reviewData.description,
+      stars: reviewData.stars
+    };
 
-    this.reviewService.postReviews(this.review!)
-      .subscribe({
-        next: (res) => {
-          this.showCorrectModal();
-        },
-        error: (error) => {
-          alert(`La review NO se cargó correctamente`);
-          console.log(error);
-        }
-      });
+    this.reviewService.postReviews(review).subscribe({
+      next: () => {
+        this.showCorrectModal();
+      },
+      error: (error) => {
+        console.error('Error al guardar la review:', error);
+        // Aquí puedes agregar manejo de errores adicional si lo necesitas
+      }
+    });
   }
 }

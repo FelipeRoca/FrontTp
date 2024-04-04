@@ -1,3 +1,4 @@
+
 import { Component, OnInit, inject, signal } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MenuItem } from 'primeng/api';
@@ -5,15 +6,12 @@ import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
 import { ValidatorsService } from '../services/validators.service';
 
-
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent {
-// esto se agrego
-  // loginForm: FormGroup;
+export class LoginComponent implements OnInit {
   private fb = inject(FormBuilder);
   private authService = inject(AuthService);
   private router = inject(Router);
@@ -24,8 +22,33 @@ export class LoginComponent {
     password: ['1111', [Validators.required], []],
   });
 
+  public items: MenuItem[] = [];
+
   public show = signal<boolean>(false);
-  public password = signal('password');
+  public passwordVisible: boolean = false;
+
+  ngOnInit() {
+    this.items = [
+      {
+        label: 'Inicio',
+        routerLink: ['/inicio'],
+        icon: 'pi pi-fw pi-file',
+        items: [] 
+      },
+      {
+        label: 'Iniciar Sesion',
+        routerLink: ['.'],
+        icon: 'pi pi-fw pi-user',
+        items: []
+      },
+      {
+        label: 'Registrarse',
+        routerLink: ['/registrarse'],
+        icon: 'pi pi-fw pi-calendar',
+        items: []
+      },
+    ];
+  }
 
   onSubmit(): void {
     if (this.myForm.invalid) {
@@ -41,41 +64,12 @@ export class LoginComponent {
         next: () => this.router.navigateByUrl('/inicio')
       });
   }
-//hasta aca
 
   onShow(): void {
-    if (!this.show()) this.password.set('text');
-    else this.password.set('password');
-
-    return this.show.set(!this.show());
+    this.passwordVisible = !this.passwordVisible;
   }
 
-  /* Barra de navegacion */
-
-  items: MenuItem[] | undefined;
-
-   ngOnInit() {
-        this.items = [
-            {
-                label: 'Inicio',
-                routerLink: ['/inicio'],
-                icon: 'pi pi-fw pi-file',
-                items: [] 
-            },
-            {
-                label: 'Iniciar Sesion',
-                routerLink: ['.'],
-                icon: 'pi pi-fw pi-user',
-                items: []
-            },
-            {
-                label: 'Registrarse',
-                routerLink: ['/registrarse'],
-                icon: 'pi pi-fw pi-calendar',
-                items: []
-            },
-        ];
-    }
-
+  getPasswordType(): string {
+    return this.passwordVisible ? 'text' : 'password';
+  }
 }
-
