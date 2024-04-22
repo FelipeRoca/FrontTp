@@ -18,16 +18,15 @@ import { AuthService } from '../services/auth.service';
 })
 export class SiginComponent {
 
-  // user?: User;
 
-  //Inyecciones
+
+
   private fb = inject(FormBuilder);
-  // private reviewService = inject(ResServiceService);
   private router = inject(Router);
   private validatorsService = inject(ValidatorsService);
   private authService = inject(AuthService);
   
-  //Reactive Form
+
   public myForm: FormGroup = this.fb.group({
     email: ['', [Validators.required, Validators.pattern(this.validatorsService.emailPattern)]],
     password: ['', [Validators.required]],
@@ -72,7 +71,7 @@ export class SiginComponent {
       return;
     }
 
-    // this.user = this.myForm.value;
+
     const { password2, ...user } = this.myForm.value;
 
     this.authService.register(user)

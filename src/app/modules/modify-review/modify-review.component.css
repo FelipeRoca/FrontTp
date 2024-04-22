@@ -1,0 +1,19 @@
+.body{
+    background-color: #f1f1f1; 
+    display: block; 
+    height: 100vh;
+}
+
+.card{
+    border: solid 2px;
+}
+
+
+.title{
+    text-align: center; color: black;
+}
+
+
+.mb-4{
+    color: #135B9E
+}

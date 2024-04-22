@@ -32,6 +32,11 @@ export class WelcomeComponent {
                         icon: 'pi pi-fw pi-align-center',
                         routerLink: '/mis-res'
                     },
+                    {
+                        label: 'Ver todas las Reseñas',
+                        icon: 'pi pi-fw pi-align-center',
+                        routerLink: '/buscar'
+                    },
                 ]
             },
             {

@@ -4,3 +4,59 @@
     box-shadow: 5px 5px 5px #888;
     
  }
+
+ .body{
+    background-color: #f1f1f1; 
+    display: block; 
+    height:auto
+ }
+
+ .card{
+    border: solid 2px;
+ }
+
+ .title-body{
+    text-align: center; 
+    color: black;
+ }
+
+ .main-div{
+    margin: 0 auto; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
+    margin-top: 50px;
+ }
+
+
+ .title{
+    color: #135B9E
+ }
+
+
+ .flex-d{
+    margin-top: 50px;
+ }
+
+
+ .table{
+    width: 90vw; 
+    margin-top: 50px;
+ }
+
+ .restart{
+    text-align: center;
+ }
+
+ .d-flex justify-content-center{
+     display: block;
+     height: 50vh;
+     width: 100vw;
+ }
+
+ .map-div{
+    width: 90vw; 
+    margin-top: 50px; 
+    margin-bottom: 50px;
+ }

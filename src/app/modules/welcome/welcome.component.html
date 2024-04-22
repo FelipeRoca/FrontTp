@@ -1,30 +1,28 @@
-<body style="background-image: url('https://e0.pxfuel.com/wallpapers/814/652/desktop-wallpaper-beach-nature-beach-sea-sunset-16-9-high-definition.jpg'); background-size: cover; display: flex; justify-content: center; align-items: center; height: 100vh; position: relative;">
+<body class='image' >
 
-  <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); z-index: 0;"></div>
+  <div class="opacity"></div>
 
-  <div style="position: absolute; top: 0; left: 0; width: 100%; z-index: 1;">
-    <div class="card" style="border: solid 2px;">
+  <div class="title1">
+    <div class="card">
       <p-menubar [model]="items">
         <ng-template pTemplate="start">
-          <span style="text-align: center; color: black;"> RESEÑAS TURISTICAS </span>
+          <span class="title"> RESEÑAS TURISTICAS </span>
         </ng-template>
       </p-menubar>
     </div>
   </div>
 
-  <div
-    class="contenedor"
-    style="position: relative; text-align: center; z-index: 1; color: white;">
-    <div class="centrado" style="position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);">
-      <h1 class="display-1" style="margin-bottom: 20px;">Reseñas turisticas</h1>
+  <div class="container">
+    <div class="centered">
+      <h1 class="display-1">Reseñas turisticas</h1>
       <p>
         Escriba y lea reseñas de los destinos turisticos que desee, siempre y en
         todo lugar.
       </p>
       <p>
         Dé la calificación con estrellas de un determinado lugar, ademas indique
-        el grado de satisfaccion con respecto a sus expectativas del mismo
-        adjuntando imagenes y una descripcion que sintetice sus ideas.
+        una descripcion completa de su experiencia para que demas usuarios puedan
+        leerlo.    
       </p>
       <button class="btn-primary" routerLink="/buscar"> "Descubra todas las reseñas"</button>
     </div>

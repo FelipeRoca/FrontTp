@@ -1,21 +1,20 @@
 
-<body style="background-color: #f1f1f1; display: block; height: 120vh;">
+<body class="body">
 
-    <div class="card" style="border: solid 2px;">
+    <div class="card">
         <p-menubar [model]="items">
             <ng-template pTemplate="start">
-                <span style="text-align: center; color: black;"> RESEÑAS TURISTICAS </span>
+                <span class="title"> RESEÑAS TURISTICAS </span>
             </ng-template>
         </p-menubar>
     </div>
-    <div style="text-align: center; margin-top: 20px;">
-        <h1 style="color: #135B9E">Redacte su reseña!</h1>
+    <div class="title2">
+        <h1 class="title3">Redacte su reseña!</h1>
     </div>
 
 
-    <form [formGroup]="myForm" (ngSubmit)="onFormSubmit()"
-        style="margin: 0 auto; display: flex; flex-direction: column; justify-content: center; align-items: center; margin-top: 50px;">
-        <div style="width: 600px; text-align: center; margin-top: 50px;">
+    <form class="form" [formGroup]="myForm" (ngSubmit)="onFormSubmit()">
+        <div class="form1">
             <label for="exampleDataList" class="form-label">Pais</label>
             <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Francia"
                 formControlName="country">
@@ -217,18 +216,18 @@
             </datalist>
         </div>
 
-        <div style="width: 600px; text-align: center; margin-top: 50px;">
+        <div class="cityDiv">
             <label for="exampleDataList" class="form-label">Ciudad</label>
             <input class="form-control" id="exampleDataList" placeholder="Paris" formControlName="city">
         </div>
 
-        <div class="mb-3" style="width: 600px; text-align: center; margin-top: 50px; ">
+        <div class="mb-3">
             <label for="exampleFormControlTextarea1" class="form-label">Escriba algo acerca del lugar</label>
             <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
                 formControlName="description"></textarea>
         </div>
 
-        <div style="width: 600px; text-align: center; margin-top: 50px; ">
+        <div class="starsDiv">
             <div class="form-floating">
                 <select class="form-select" id="floatingSelect" aria-label="Floating label select example"
                     formControlName="stars">
@@ -243,7 +242,7 @@
             </div>
         </div>
 
-        <div style=" text-align: center; margin-top: 40px; ">
+        <div class="submitDiv" style=" text-align: center; margin-top: 40px; ">
             <button type="submit" class="btn btn-outline-primary">Guardar reseña</button>
         </div>
     </form>

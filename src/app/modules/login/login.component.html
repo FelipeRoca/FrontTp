@@ -1,21 +1,21 @@
 
 
 <body>
-  <div class="card" style="border: solid 2px;">
+  <div class="card">
     <p-menubar [model]="items">
       <ng-template pTemplate="start">
-        <span style="text-align: center; color: black;"> RESEÑAS TURISTICAS </span>
+        <span class="title"> RESEÑAS TURISTICAS </span>
       </ng-template>
     </p-menubar>
   </div>
 
   <h1 class="display-1">Iniciar Sesion</h1>
 
-  <div style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+  <div class="form-div">
     <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
-      <div style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+      <div class="form-div2">
         <div class="mb-3">
-          <label for="exampleInputEmail1" class="form-label" style="display: flex; justify-content: start; font-family: sans-serif;">Correo electronico</label>
+          <label for="exampleInputEmail1" class="form-label">Correo electronico</label>
           <input
             type="text"
             class="form-control"
@@ -24,30 +24,30 @@
             placeholder="ejemplo@hotmail.com"
             formControlName="email"
           />
-          <div id="emailHelp" class="form-text" style="font-family: sans-serif;">
+          <div id="emailHelp" class="form-text">
             Nunca compartiremos su correo electronico
           </div>
         </div>
       </div>
 
-      <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; margin-top: 50px;">
+      <div class="password-div">
         <div class="mb-3">
-          <label for="exampleInputPassword1" class="form-label" style="font-family: sans-serif;">Contraseña</label>
-          <div style="display: flex; align-items: center;">
+          <label for="exampleInputPassword1" class="form-label">Contraseña</label>
+          <div class="password-div2">
             <input
               [type]="getPasswordType()"
               class="form-control col"
               id="exampleInputPassword1"
               formControlName="password"
             />
-            <button (click)="onShow()" type="button" class="btn btn-outline-secondary" style="margin-left: 5px;">
+            <button (click)="onShow()" type="button" class="btn btn-outline-secondary" class="password-button">
               <span class="fa" [ngClass]="passwordVisible ? 'fa fa-eye-slash' : 'fa fa-eye'"></span>
             </button>
           </div>
         </div>
       </div>
 
-      <div style="justify-content: center; text-align: center;">
+      <div class="buttons">
         <button type="submit" class="btn btn-primary submit">Iniciar Sesion</button>
         <button type="button" class="btn btn-light button" routerLink="/registrarse">Registrarse</button>
       </div>

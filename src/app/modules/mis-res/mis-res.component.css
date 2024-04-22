@@ -32,5 +32,36 @@
     text-align: right;
   }
   
-  /* Puedes agregar estilos adicionales según tus necesidades */
+.body{
+  background-color: #f1f1f1; 
+  display: block; 
+  height: auto;
+}
+
+.card{
+  border: solid 2px;
+}
+
+.title {
+  text-align: center; 
+  color: black;
+}
+
+.container{
+  margin-top: 50px;
+}
   
+.title1{
+  color: #135B9E;
+  text-align: center;
+}
+
+.table{
+  width:90vw; 
+  margin-top: 50px;
+}
+
+.modal{
+  display: block; 
+  background: rgba(0,0,0,0.5);
+}

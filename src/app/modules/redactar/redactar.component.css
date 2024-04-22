@@ -85,7 +85,6 @@
   
 
 
-
   .correct-modal {
     display: none; 
     position: fixed; 
@@ -121,4 +120,65 @@
     color: #000;
     text-decoration: none;
     cursor: pointer;
+  }
+
+
+  .body{
+    background-color: #f1f1f1; 
+    display: block; 
+    height: 120vh;
+  }
+
+  .card{
+    border: solid 2px;
+  }
+
+
+  .title{
+    text-align: center; 
+    color: black;
+  }
+
+  .title2{
+    text-align: center; 
+    margin-top: 20px;
+  }
+
+  .title3{
+    color: #135B9E
+  }
+
+
+  .form{
+    margin: 0 auto; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
+    margin-top: 50px;
+  }
+
+
+  .form1{
+    width: 600px; 
+    text-align: center; 
+    margin-top: 50px;
+  }
+
+  .cityDiv{
+    width: 600px; 
+    text-align: center; 
+    margin-top: 50px;
+  }
+
+  .mb-3{
+    width: 600px; 
+    text-align: center; 
+    margin-top: 50px;
+  }
+
+  .starsDiv{
+    width: 600px; 
+    text-align: center; 
+    margin-top: 50px;
   }

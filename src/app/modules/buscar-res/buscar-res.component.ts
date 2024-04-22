@@ -16,6 +16,7 @@ export class BuscarResComponent implements OnInit {
   reviews: any[] = [];
   items: MenuItem[] | undefined;
   map: L.Map | undefined;
+  resButton: boolean = false;
 
   constructor(
     private resServiceService: ResServiceService,
@@ -91,6 +92,7 @@ export class BuscarResComponent implements OnInit {
   buscarReview(cityName: any, countryName: any): void {
     console.log(cityName, countryName);
     const direccion = `${cityName.value}, ${countryName.value}`;
+    this.resButton = true;
     
     this.buscarResService.getReviewsByCityName(cityName.value).subscribe(reviews => {
       if (Array.isArray(reviews)) {
@@ -132,6 +134,7 @@ export class BuscarResComponent implements OnInit {
       });
     });
   }
+
   restablecerCiudades(): void {
     this.resServiceService.getReviews().subscribe((reviews: any) => {
       this.reviews = Array.isArray(reviews) ? reviews : [reviews];
@@ -145,5 +148,7 @@ export class BuscarResComponent implements OnInit {
       }
     );
   }
+
+
 
 }
