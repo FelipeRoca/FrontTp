@@ -60,3 +60,48 @@
     margin-top: 50px; 
     margin-bottom: 50px;
  }
+
+ .tripadvisor-section {
+   width: 50vw; 
+   height: auto; 
+   margin-top: 50px; 
+   margin-bottom: 50px; 
+   background-color: #8babc9;
+   border-radius: 10px;
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+   padding: 20px;
+ }
+ 
+ .titleTripAD {
+   margin-top: 20px; 
+   color: #ffffff;
+   font-size: 24px;
+   font-weight: bold;
+   text-align: center;
+   text-transform: uppercase;
+   letter-spacing: 1px;
+ }
+ 
+ .linkTripAd {
+   display: inline-block;
+   color: #ffffff;
+   background-color: #135B9E;
+   padding: 10px 20px;
+   margin-top: 10px;
+   border-radius: 5px;
+   text-align: center;
+   text-decoration: none;
+   transition: background-color 0.3s ease;
+ }
+ 
+ .linkTripAd:hover {
+   background-color: #0e4a7b;
+ }
+ 
+ .div-tripAd {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   text-align: center;
+ }
+ 

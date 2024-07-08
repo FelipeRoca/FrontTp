@@ -1,5 +1,4 @@
 
-
 import { Component, OnInit } from '@angular/core';
 import { ResServiceService } from '../services/res-service.service';
 import { BuscarResService } from '../services/buscar-res.service';
@@ -17,6 +16,9 @@ export class BuscarResComponent implements OnInit {
   items: MenuItem[] | undefined;
   map: L.Map | undefined;
   resButton: boolean = false;
+  showTripAdvisor: boolean = false;
+  selectedCity: string = '';
+  tripAdvisorSearchUrl: string = '';
 
   constructor(
     private resServiceService: ResServiceService,
@@ -30,7 +32,7 @@ export class BuscarResComponent implements OnInit {
         label: 'Inicio',
         routerLink: ['/inicio'],
         icon: 'pi pi-fw pi-file',
-        items: [] 
+        items: []
       },
       {
         label: 'Iniciar Sesion',
@@ -49,7 +51,6 @@ export class BuscarResComponent implements OnInit {
     this.resServiceService.getReviews().subscribe((reviews: any) => {
       this.reviews = Array.isArray(reviews) ? reviews : [reviews];
       console.log(this.reviews);
-
 
       this.inicializarMapa();
       this.geocodeYMostrarLugaresEnMapa();
@@ -114,6 +115,7 @@ export class BuscarResComponent implements OnInit {
   }
 
   mostrarInput(valor: any): void {
+    this.selectedCity = valor.value;
     this.buscarResService.getReviewsByCityName(valor.value).subscribe(reviews => {
       if (Array.isArray(reviews)) {
         this.reviews = reviews;
@@ -132,23 +134,28 @@ export class BuscarResComponent implements OnInit {
           console.warn(`No se encontraron coordenadas para la dirección: ${direccion}`);
         }
       });
+
+      this.getTripAdvisorHotels(this.selectedCity);
     });
+  }
+
+  getTripAdvisorHotels(city: string) {
+    this.tripAdvisorSearchUrl = `https://www.tripadvisor.com/Search?q=hotels+in+${encodeURIComponent(city)}`;
+    this.showTripAdvisor = true;
   }
 
   restablecerCiudades(): void {
     this.resServiceService.getReviews().subscribe((reviews: any) => {
       this.reviews = Array.isArray(reviews) ? reviews : [reviews];
       console.log(this.reviews);
-        if (this.map) {
-          this.map.remove();
-        }
-      
-        this.inicializarMapa();
-        this.geocodeYMostrarLugaresEnMapa();
+      if (this.map) {
+        this.map.remove();
       }
-    );
+      
+      this.inicializarMapa();
+      this.geocodeYMostrarLugaresEnMapa();
+      this.showTripAdvisor = false;
+      this.tripAdvisorSearchUrl = '';
+    });
   }
-
-
-
 }
