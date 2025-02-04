@@ -38,9 +38,32 @@
       </div>
 
       <div style="text-align: center;">
-        <button type="submit" class="btn btn-primary">Registrarse</button>
+        <button type="submit" class="btn btn-primary" [disabled]="myForm.invalid">Registrarse</button>
       </div>
 
   </form>
+
+
+  <div class="mail-error-modal" id="mail-error-modal">
+    <div class="mail-error-modal-content">
+      <span class="mail-error-close" (click)="closeMailErrorModal()">&times;</span>
+      <h2>Error</h2>
+      <p>El correo ingresado ya está registrado.</p>
+      <button (click)="closeMailErrorModal()">OK</button>
+    </div>
+  </div>
+  
+
+  <div id="correctModal" class="correct-modal">
+    <div class="correct-modal-content">
+        <span class="correct-close" (click)="closeCorrectModal()">&times;</span>
+        <h2>Genial!</h2>
+        <p>El usuario se registro correctamente.</p>
+        <button id="modalOkButton" (click)="closeCorrectModal()">Iniciar Sesion</button>
+    </div>
+</div>
+
+
+
 
 </body>

@@ -113,7 +113,6 @@ export class RedactarComponent implements OnInit {
       },
       error: (error) => {
         console.error('Error al guardar la review:', error);
-        // Aquí puedes agregar manejo de errores adicional si lo necesitas
       }
     });
   }

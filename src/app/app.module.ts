@@ -16,7 +16,8 @@ import {HttpClientModule} from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CustomLabelDirective } from './modules/directives/custom-label.directive';
 import { ModifyReviewComponent } from './modules/modify-review/modify-review.component';
-
+import { DialogModule } from 'primeng/dialog';
+import { ButtonModule } from 'primeng/button';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,7 @@ import { ModifyReviewComponent } from './modules/modify-review/modify-review.com
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-
+    DialogModule
 
   ],
   providers: [],

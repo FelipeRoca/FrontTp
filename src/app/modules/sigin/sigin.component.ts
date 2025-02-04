@@ -25,6 +25,8 @@ export class SiginComponent {
   private router = inject(Router);
   private validatorsService = inject(ValidatorsService);
   private authService = inject(AuthService);
+  mailErrorModal : boolean = false;
+  correctModal : boolean = false;
   
 
   public myForm: FormGroup = this.fb.group({
@@ -64,6 +66,35 @@ export class SiginComponent {
     ];
   }
       
+  showMailErrorModal() {
+    const mailErrorModal = document.getElementById('mail-error-modal');
+    if (mailErrorModal) {
+      mailErrorModal.style.display = 'block';
+    }
+  }
+
+  closeMailErrorModal() {
+    const mailErrorModal = document.getElementById('mail-error-modal');
+    if (mailErrorModal) {
+      mailErrorModal.style.display = 'none';
+    }
+  }
+
+  showCorrectModal() {
+    const correctModal = document.getElementById('correctModal');
+    if (correctModal) {
+      correctModal.style.display = 'block';
+    }
+  }
+
+  closeCorrectModal() {
+    const correctModal = document.getElementById('correctModal');
+    if (correctModal) {
+      correctModal.style.display = 'none';
+      this.router.navigateByUrl('/iniciar-sesion');
+    }
+  }
+  
 
   onFormSubmit() {
     if (this.myForm.invalid) {
@@ -71,27 +102,26 @@ export class SiginComponent {
       return;
     }
 
+   
 
     const { password2, ...user } = this.myForm.value;
 
     this.authService.register(user)
       .subscribe({
         next: (res) => {
-          alert('Usuario registrado.')
-          this.router.navigateByUrl('/iniciar-sesion');
+          this.correctModal = true;
+          this.showCorrectModal();
+
         },
         error: (error) => {
-          console.log('Error al cargar el usuario:', error)
-          alert('Error al cargar el usuario. Consulta la consola para más detalles.');
+          this.mailErrorModal = true;
+          this.showMailErrorModal();
         }
       });
-
-
-  }
-
-  
 }
 
+
+}
 
 
 
