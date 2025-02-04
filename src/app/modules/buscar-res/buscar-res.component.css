@@ -105,3 +105,13 @@
    text-align: center;
  }
  
+
+ .weather-section {
+   background-color: #f0f4f8;  /* Fondo claro y suave */
+   border-radius: 8px;          /* Bordes redondeados */
+   padding: 20px;               /* Espaciado interno */
+   margin-top: 20px;            /* Margen superior */
+   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);  /* Sombra suave */
+   font-family: 'Arial', sans-serif;  /* Fuente limpia y moderna */
+   color: #333;  /* Color de texto oscuro para contraste */
+ }

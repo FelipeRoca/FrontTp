@@ -1,18 +1,17 @@
-
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { MenuItem } from 'primeng/api';
+import { AuthService } from '../services/auth.service';
 import { ResServiceService } from '../services/mis-res-service';
 import { DelResServiceService } from '../services/del-res-service';
 import { HttpClient } from '@angular/common/http';
-import { AuthService } from '../services/auth.service';
-import { Router } from '@angular/router';
-import { MenuItem } from 'primeng/api';
+import { LocalStorageService } from '../services/local-storage.service'; 
 
 @Component({
   selector: 'app-mis-res',
   templateUrl: './mis-res.component.html',
   styleUrls: ['./mis-res.component.css']
 })
-
 export class MisResComponent implements OnInit {
   reviews: any;
   modalSwitch: boolean = false;
@@ -27,7 +26,8 @@ export class MisResComponent implements OnInit {
     private http: HttpClient,
     private authService: AuthService,
     private route: Router,
-    private resServiceService: ResServiceService
+    private resServiceService: ResServiceService,
+    private localStorageService: LocalStorageService 
   ) { }
 
   ngOnInit(): void {
@@ -70,7 +70,7 @@ export class MisResComponent implements OnInit {
       this.http.delete(`http://localhost:3001/reviews/${reviewId}`).subscribe(() => {
         this.closeModal();
         if (this.selectedReviewIndex !== undefined) {
-          this.reviews.splice(this.selectedReviewIndex, 1); // Elimina la revisión del arreglo local
+          this.reviews.splice(this.selectedReviewIndex, 1); 
         }
       });
     }
@@ -87,7 +87,7 @@ export class MisResComponent implements OnInit {
   }
 
   navigateToModify(review: any): void {
-    localStorage.setItem('review', JSON.stringify(review));
+    this.localStorageService.setItem('review', review); 
     this.route.navigate([`/modify/:${review.id}`]);
   }
 }

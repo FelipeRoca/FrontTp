@@ -60,6 +60,13 @@
         <a class="linkTripAd" [href]="tripAdvisorSearchUrl" target="_blank">Ver alojamientos en {{ selectedCity }} en TripAdvisor</a>
       </div>
       </div>
+
+      <div class="weather-section" *ngIf="temperature !== null">
+        <p>Clima actual en {{ selectedCity }}:</p>
+        <p>{{ weather }}</p>
+        <p>Temperatura: {{ temperature }}°C</p>
+        <p>Humedad: {{ humidity }}%</p>
+      </div>
       
     </div>
   </body>
