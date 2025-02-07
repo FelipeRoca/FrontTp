@@ -115,3 +115,27 @@
    font-family: 'Arial', sans-serif;  /* Fuente limpia y moderna */
    color: #333;  /* Color de texto oscuro para contraste */
  }
+
+
+ .video-card {
+   display: inline-block;
+   width: 30%;
+   margin: 10px;
+   text-align: center;
+ }
+ 
+ .video-card img {
+   width: 100%;
+   border-radius: 10px;
+   transition: transform 0.3s;
+ }
+ 
+ .video-card img:hover {
+   transform: scale(1.05);
+ }
+ 
+ .video-card p {
+   font-size: 14px;
+   color: #333;
+ }
+ 

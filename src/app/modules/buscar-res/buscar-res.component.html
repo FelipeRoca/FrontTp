@@ -67,6 +67,17 @@
         <p>Temperatura: {{ temperature }}°C</p>
         <p>Humedad: {{ humidity }}%</p>
       </div>
+
+      <h3>Videos de YouTube sobre {{ selectedCity }}</h3>
+        <div *ngIf="videos.length > 0">
+          <div *ngFor="let video of videos" class="video-card">
+            <a [href]="video.videoUrl" target="_blank">
+              <img [src]="video.thumbnail" [alt]="video.title">
+              <p>{{ video.title }}</p>
+            </a>
+          </div>
+        </div>
+        <p *ngIf="videos.length === 0">No se encontraron videos.</p>
       
-    </div>
+  </div>
   </body>
