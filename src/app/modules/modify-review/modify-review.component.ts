@@ -4,6 +4,7 @@ import { ResServiceService } from '../services/modify-rev.service';
 import { Router } from '@angular/router';
 import { MenuItem } from 'primeng/api';
 import { LocalStorageService } from '../services/local-storage.service'; 
+import { SharedReviewService } from '../services/shared-review.service';
 
 @Component({
   selector: 'app-modify-review',
@@ -19,7 +20,8 @@ export class ModifyReviewComponent implements OnInit {
     private fb: FormBuilder,
     private reviewService: ResServiceService,
     private router: Router,
-    private localStorageService: LocalStorageService 
+    private localStorageService: LocalStorageService,
+    private sharedReviewService: SharedReviewService
   ) {
     this.myForm = this.fb.group({
       description: ['', Validators.required],
@@ -49,13 +51,13 @@ export class ModifyReviewComponent implements OnInit {
       },
     ];
 
-  
-    const storedReview = this.localStorageService.getItem('review');
-    if (storedReview) {
-      this.review = storedReview;
-      this.myForm.patchValue(this.review);
-    } else {
-      console.error('No se encontró ninguna revisión en localStorage.');
+
+    this.review = this.sharedReviewService.getReview();
+
+    if (this.review) {
+     this.myForm.patchValue(this.review);
+     } else {
+     console.error('No se encontró ninguna reseña.');
     }
   }
 
@@ -77,12 +79,3 @@ export class ModifyReviewComponent implements OnInit {
     });
   }
 }
-
-
-
-
-
-
-
-
-

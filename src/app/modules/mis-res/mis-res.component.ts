@@ -6,6 +6,7 @@ import { ResServiceService } from '../services/mis-res-service';
 import { DelResServiceService } from '../services/del-res-service';
 import { HttpClient } from '@angular/common/http';
 import { LocalStorageService } from '../services/local-storage.service'; 
+import { SharedReviewService } from '../services/shared-review.service';
 
 @Component({
   selector: 'app-mis-res',
@@ -27,7 +28,8 @@ export class MisResComponent implements OnInit {
     private authService: AuthService,
     private route: Router,
     private resServiceService: ResServiceService,
-    private localStorageService: LocalStorageService 
+    private localStorageService: LocalStorageService,
+    private sharedReviewService: SharedReviewService,
   ) { }
 
   ngOnInit(): void {
@@ -87,7 +89,7 @@ export class MisResComponent implements OnInit {
   }
 
   navigateToModify(review: any): void {
-    this.localStorageService.setItem('review', review); 
-    this.route.navigate([`/modify/:${review.id}`]);
+    this.sharedReviewService.setReview(review); 
+    this.route.navigate(['/modify', review.id]);
   }
 }
