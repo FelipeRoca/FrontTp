@@ -14,26 +14,6 @@ export class InicioComponent {
   ngOnInit(): void{
     const user = this.authService!.currentUser();
     console.log('User:', user);
-    this.items = [
-      {
-          label: 'Inicio',
-          routerLink: ['/inicio'],
-          icon: 'pi pi-fw pi-file',
-          items: [] 
-      },
-      {
-          label: 'Iniciar Sesion',
-          routerLink: ['/iniciar-sesion'],
-          icon: 'pi pi-fw pi-user',
-          items: []
-      },
-      {
-          label: 'Registrarse',
-          routerLink: ['/registrarse'],
-          icon: 'pi pi-fw pi-calendar',
-          items: []
-      },
-  ];
   
   }
 

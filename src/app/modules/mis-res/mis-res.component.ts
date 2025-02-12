@@ -33,28 +33,7 @@ export class MisResComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.items = [
-      {
-        label: 'Inicio',
-        routerLink: ['/inicio'],
-        icon: 'pi pi-fw pi-file',
-        items: []
-      },
-      {
-        label: 'Iniciar Sesion',
-        routerLink: ['/iniciar-sesion'],
-        icon: 'pi pi-fw pi-user',
-        items: []
-      },
-      {
-        label: 'Registrarse',
-        routerLink: ['/registrarse'],
-        icon: 'pi pi-fw pi-calendar',
-        items: []
-      },
-    ];
-
-    const currentUser = this.authService.currentUser();
+        const currentUser = this.authService.currentUser();
     if (!currentUser) {
       this.sesion = true;
     }

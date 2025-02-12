@@ -30,29 +30,7 @@ export class ModifyReviewComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.items = [
-      {
-        label: 'Inicio',
-        routerLink: ['/inicio'],
-        icon: 'pi pi-fw pi-file',
-        items: [] 
-      },
-      {
-        label: 'Iniciar Sesion',
-        routerLink: ['/iniciar-sesion'],
-        icon: 'pi pi-fw pi-user',
-        items: []
-      },
-      {
-        label: 'Registrarse',
-        routerLink: ['/registrarse'],
-        icon: 'pi pi-fw pi-calendar',
-        items: []
-      },
-    ];
-
-
-    this.review = this.sharedReviewService.getReview();
+      this.review = this.sharedReviewService.getReview();
 
     if (this.review) {
      this.myForm.patchValue(this.review);

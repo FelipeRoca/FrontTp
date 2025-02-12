@@ -36,28 +36,7 @@ export class BuscarResComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.items = [
-      {
-        label: 'Inicio',
-        routerLink: ['/inicio'],
-        icon: 'pi pi-fw pi-file',
-        items: []
-      },
-      {
-        label: 'Iniciar Sesion',
-        routerLink: ['/iniciar-sesion'],
-        icon: 'pi pi-fw pi-user',
-        items: []
-      },
-      {
-        label: 'Registrarse',
-        routerLink: ['/registrarse'],
-        icon: 'pi pi-fw pi-calendar',
-        items: []
-      },
-    ];
-
-    this.resServiceService.getReviews().subscribe((reviews: any) => {
+        this.resServiceService.getReviews().subscribe((reviews: any) => {
       this.reviews = Array.isArray(reviews) ? reviews : [reviews];
       console.log(this.reviews);
 

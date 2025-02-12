@@ -18,6 +18,7 @@ import { CustomLabelDirective } from './modules/directives/custom-label.directiv
 import { ModifyReviewComponent } from './modules/modify-review/modify-review.component';
 import { DialogModule } from 'primeng/dialog';
 import { ButtonModule } from 'primeng/button';
+import { MenubarComponent } from './components/menubar/menubar.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { ButtonModule } from 'primeng/button';
     BuscarResComponent,
     MisResComponent,
     CustomLabelDirective,
-    ModifyReviewComponent
+    ModifyReviewComponent,
+    MenubarComponent
   ],
   imports: [
     BrowserModule,
