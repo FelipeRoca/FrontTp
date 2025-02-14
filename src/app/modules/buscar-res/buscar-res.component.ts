@@ -1,12 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { ResServiceService } from '../services/res-service.service';
 import { BuscarResService } from '../services/buscar-res.service';
-import { WeatherService } from '../services/weather.service';  // Importar el servicio de clima
-import { GeocodeService } from '../services/geocode.service';  // Importar el servicio de geocodificación
+import { WeatherService } from '../services/weather.service';  
+import { GeocodeService } from '../services/geocode.service';  
 import { MenuItem } from 'primeng/api';
 import * as L from 'leaflet';
 import { YoutubeService } from '../../services/youtube.service';
 
+
+type Clima = "Sunny" | "Partly cloudy" | "Cloudy" | "Rainy" | "Stormy" | "Windy" | "Foggy" | "Snowy";
 
 @Component({
   selector: 'app-buscar-res',
@@ -30,13 +32,13 @@ export class BuscarResComponent implements OnInit {
   constructor(
     private resServiceService: ResServiceService,
     private buscarResService: BuscarResService,
-    private weatherService: WeatherService,  // Inyectar WeatherService
-    private geocodeService: GeocodeService, // Inyectar GeocodeService
+    private weatherService: WeatherService,  
+    private geocodeService: GeocodeService, 
     private youtubeService: YoutubeService 
   ) {}
 
   ngOnInit(): void {
-        this.resServiceService.getReviews().subscribe((reviews: any) => {
+    this.resServiceService.getReviews().subscribe((reviews: any) => {
       this.reviews = Array.isArray(reviews) ? reviews : [reviews];
       console.log(this.reviews);
 
@@ -46,11 +48,11 @@ export class BuscarResComponent implements OnInit {
     });
   }
 
-  // Usamos el WeatherService para obtener el clima
+  //para obtener el clima
   getWeather(cityName: string): void {
     this.weatherService.getWeather(cityName).subscribe((data: any) => {
       if (data && data.current) {
-        this.weather = data.current.weather_descriptions[0];
+        this.weather = this.traducirClima(data.current.weather_descriptions[0]);
         this.temperature = data.current.temperature;
         this.humidity = data.current.humidity;
       } else {
@@ -59,7 +61,21 @@ export class BuscarResComponent implements OnInit {
     });
   }
 
-  // Inicializar el mapa
+  // Traducir
+  traducirClima(estado: string): string {
+    const condiciones: { [key in Clima]: string } = {
+      Sunny: "Soleado",
+      "Partly cloudy": "Parcialmente nublado",
+      Cloudy: "Nublado",
+      Rainy: "Lluvia",
+      Stormy: "Tormentoso",
+      Windy: "Ventoso",
+      Foggy: "Con niebla",
+      Snowy: "Nevado"
+    };
+
+    return condiciones[estado as Clima] || estado; // Se asegura que estado es uno de los valores permitidos
+  }
   inicializarMapa() {
     this.map = L.map('map').setView([0, 0], 2);
 
@@ -68,7 +84,7 @@ export class BuscarResComponent implements OnInit {
     }).addTo(this.map);
   }
 
-  // Mostrar lugares en el mapa utilizando geocodificación
+  // Mostrar lugares en el mapa
   geocodeYMostrarLugaresEnMapa() {
     if (!this.map) {
       console.error('El mapa no está inicializado.');
@@ -148,7 +164,6 @@ export class BuscarResComponent implements OnInit {
     this.showTripAdvisor = true;
   }
 
-
   getVideos(city: string): void {
     if (city.trim() === '') {
       console.log('No hay búsqueda, cargando videos por defecto...');
@@ -166,7 +181,7 @@ export class BuscarResComponent implements OnInit {
     }
   }
   
-  // ✅ Función para procesar la respuesta de la API y extraer los videos
+  //  para procesar la respuesta de la API y extraer los videos
   private procesarRespuesta(response: any): void {
     console.log('Respuesta de la API de YouTube:', response);
     if (response.items && response.items.length > 0) {
@@ -186,6 +201,12 @@ export class BuscarResComponent implements OnInit {
     this.resServiceService.getReviews().subscribe((reviews: any) => {
       this.reviews = Array.isArray(reviews) ? reviews : [reviews];
       console.log(this.reviews);
+      
+      // Restablecer el clima
+      this.weather = '';
+      this.temperature = null;
+      this.humidity = null;
+      
       if (this.map) {
         this.map.remove();
       }
@@ -194,6 +215,7 @@ export class BuscarResComponent implements OnInit {
       this.geocodeYMostrarLugaresEnMapa();
       this.showTripAdvisor = false;
       this.tripAdvisorSearchUrl = '';
+      this.getVideos('');
     });
   }
 }

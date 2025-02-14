@@ -1,62 +1,59 @@
-.image {
-  background-image: url('https://e0.pxfuel.com/wallpapers/814/652/desktop-wallpaper-beach-nature-beach-sea-sunset-16-9-high-definition.jpg'); 
-  background-size: cover; 
-  display: flex; 
-  justify-content: center; 
-  align-items: center; 
-  height: 100vh; 
+.video-container {
   position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
 }
 
+.background-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
-.opacity{
+.opacity {
   position: absolute; 
   top: 0; 
   left: 0; 
   width: 100%; 
   height: 100%; 
   background-color: rgba(0, 0, 0, 0.5); 
-  z-index: 0;
+  z-index: 1;
 }
 
-
-.title1{
+.title1 {
   position: absolute; 
   top: 0; 
   left: 0; 
   width: 100%; 
-  z-index: 1;
+  z-index: 2;
 }
 
-.card{
-  border: solid 2px;
-}
-
-.title{
-  text-align: center; 
-  color: black;
-}
-
-.container{
+.container {
   position: relative; 
   text-align: center; 
-  z-index: 1; 
+  z-index: 3; 
   color: white;
 }
 
-
-.centered{
+.centered {
   position: absolute;
-  top: 50%;
+  top: 150%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
 
-.display-1{
-  margin-bottom: 20px;
+.display-1 {
+  margin-top: 180%;
+  margin-bottom:20%;
 }
 
-.btn-primary{
+.btn-primary {
   height: 6vh;
   width: 15vw;
 }
+

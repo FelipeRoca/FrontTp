@@ -64,7 +64,7 @@
         <p>Humedad: {{ humidity }}%</p>
       </div>
 
-      <h3>Videos de YouTube sobre {{ selectedCity }}</h3>
+      <h3>Videos de YouTube recomendados</h3>
         <div *ngIf="videos.length > 0">
           <div *ngFor="let video of videos" class="video-card">
             <a [href]="video.videoUrl" target="_blank">
