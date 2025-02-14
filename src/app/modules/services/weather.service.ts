@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class WeatherService {
-  private apiKey = '783c00ab61d5af6f40597c14d87c35dd'; // Asegúrate de mantener tu clave API en un archivo de configuración.
+  private apiKey = '783c00ab61d5af6f40597c14d87c35dd';
   private baseUrl = 'https://api.weatherstack.com/current';
 
   constructor(private http: HttpClient) { }

@@ -1,3 +1,4 @@
+
 import { Component, OnInit } from '@angular/core';
 import { ResServiceService } from '../services/res-service.service';
 import { BuscarResService } from '../services/buscar-res.service';
@@ -6,7 +7,7 @@ import { GeocodeService } from '../services/geocode.service';
 import { MenuItem } from 'primeng/api';
 import * as L from 'leaflet';
 import { YoutubeService } from '../../services/youtube.service';
-
+import { UnsplashService } from '../services/unsplash.service';  
 
 type Clima = "Sunny" | "Partly cloudy" | "Cloudy" | "Rainy" | "Stormy" | "Windy" | "Foggy" | "Snowy";
 
@@ -24,17 +25,19 @@ export class BuscarResComponent implements OnInit {
   selectedCity: string = '';
   tripAdvisorSearchUrl: string = '';
   videos: any[] = [];
-
   weather: string = '';
   temperature: number | null = null;
   humidity: number | null = null;
+
+  imagenes: any[] = [];  
 
   constructor(
     private resServiceService: ResServiceService,
     private buscarResService: BuscarResService,
     private weatherService: WeatherService,  
     private geocodeService: GeocodeService, 
-    private youtubeService: YoutubeService 
+    private youtubeService: YoutubeService,
+    private unsplashService: UnsplashService  
   ) {}
 
   ngOnInit(): void {
@@ -48,7 +51,6 @@ export class BuscarResComponent implements OnInit {
     });
   }
 
-  //para obtener el clima
   getWeather(cityName: string): void {
     this.weatherService.getWeather(cityName).subscribe((data: any) => {
       if (data && data.current) {
@@ -61,7 +63,6 @@ export class BuscarResComponent implements OnInit {
     });
   }
 
-  // Traducir
   traducirClima(estado: string): string {
     const condiciones: { [key in Clima]: string } = {
       Sunny: "Soleado",
@@ -74,8 +75,9 @@ export class BuscarResComponent implements OnInit {
       Snowy: "Nevado"
     };
 
-    return condiciones[estado as Clima] || estado; // Se asegura que estado es uno de los valores permitidos
+    return condiciones[estado as Clima] || estado;
   }
+
   inicializarMapa() {
     this.map = L.map('map').setView([0, 0], 2);
 
@@ -84,7 +86,6 @@ export class BuscarResComponent implements OnInit {
     }).addTo(this.map);
   }
 
-  // Mostrar lugares en el mapa
   geocodeYMostrarLugaresEnMapa() {
     if (!this.map) {
       console.error('El mapa no está inicializado.');
@@ -128,6 +129,8 @@ export class BuscarResComponent implements OnInit {
         }
       });
     });
+
+    this.buscarImagenesDeCiudad('city of ' + cityName.value);
   }
 
   // Mostrar información de la ciudad seleccionada
@@ -155,10 +158,20 @@ export class BuscarResComponent implements OnInit {
       this.getTripAdvisorHotels(this.selectedCity);
       this.getWeather(this.selectedCity);
       this.getVideos(this.selectedCity);
+      this.buscarImagenesDeCiudad(valor.value);
     });
   }
 
-  // Obtener hoteles desde TripAdvisor
+  
+  buscarImagenesDeCiudad(ciudad: string): void {
+    this.unsplashService.obtenerImagenesDeCiudad(ciudad).subscribe((data: any) => {
+      this.imagenes = data.results;  
+      console.log(this.imagenes);  
+    }, (error) => {
+      console.error('Error al obtener imágenes de Unsplash', error);
+    });
+  }
+
   getTripAdvisorHotels(city: string) {
     this.tripAdvisorSearchUrl = `https://www.tripadvisor.com/Search?q=hotels+in+${encodeURIComponent(city)}`;
     this.showTripAdvisor = true;
@@ -180,8 +193,7 @@ export class BuscarResComponent implements OnInit {
       });
     }
   }
-  
-  //  para procesar la respuesta de la API y extraer los videos
+
   private procesarRespuesta(response: any): void {
     console.log('Respuesta de la API de YouTube:', response);
     if (response.items && response.items.length > 0) {
@@ -196,13 +208,11 @@ export class BuscarResComponent implements OnInit {
     }
   }
 
-  // Restablecer ciudades
   restablecerCiudades(): void {
     this.resServiceService.getReviews().subscribe((reviews: any) => {
       this.reviews = Array.isArray(reviews) ? reviews : [reviews];
       console.log(this.reviews);
       
-      // Restablecer el clima
       this.weather = '';
       this.temperature = null;
       this.humidity = null;
@@ -216,6 +226,7 @@ export class BuscarResComponent implements OnInit {
       this.showTripAdvisor = false;
       this.tripAdvisorSearchUrl = '';
       this.getVideos('');
+      this.imagenes = [];  
     });
   }
 }

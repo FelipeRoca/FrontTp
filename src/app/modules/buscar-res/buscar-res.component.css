@@ -107,13 +107,13 @@
  
 
  .weather-section {
-   background-color: #f0f4f8;  /* Fondo claro y suave */
-   border-radius: 8px;          /* Bordes redondeados */
-   padding: 20px;               /* Espaciado interno */
-   margin-top: 20px;            /* Margen superior */
-   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);  /* Sombra suave */
-   font-family: 'Arial', sans-serif;  /* Fuente limpia y moderna */
-   color: #333;  /* Color de texto oscuro para contraste */
+   background-color: #f0f4f8; 
+   border-radius: 8px;          
+   padding: 20px;               
+   margin-top: 20px;            
+   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);  
+   font-family: 'Arial', sans-serif;  
+   color: #333;  
  }
 
 
@@ -139,3 +139,64 @@
    color: #333;
  }
  
+
+
+ .galeria-imagenes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;  
+  justify-content: center;  
+}
+
+.imagen-card {
+  width: 250px;  
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+  transition: transform 0.3s ease;  
+}
+
+.imagen-card:hover {
+  transform: scale(1.05);  
+}
+
+.imagen-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 10px;
+}
+
+
+#imageCarousel {
+  max-width: 100%;  
+  margin: 20px auto;  
+  border-radius: 8px;  
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  
+}
+
+.carousel-inner img {
+  width: 100%;  
+  height: auto; 
+  border-radius: 8px;  
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: #135B9E;  
+}
+
+
+.card {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+  border-radius: 10px; 
+  background-color: #333;
+}
+
+.card-body {
+  padding: 15px;
+}
+
+img {
+  border-radius: 8px; 
+}

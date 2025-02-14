@@ -6,18 +6,18 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class YoutubeService {
-  private apiKey = 'AIzaSyCskW1CM8-kSlACeFGY0s4F3n-TgPfqrPA';  // Reemplázala con tu clave real
+  private apiKey = 'AIzaSyAqQJS2NB-zL2sgk1DUGl-lAFny9--ALhc'; 
   private apiUrl = 'https://www.googleapis.com/youtube/v3/search';
 
   constructor(private http: HttpClient) {}
 
-  // 🔍 Busca videos según una ciudad ingresada
+  // Busca videos según una ciudad ingresada
   buscarVideos(ciudad: string): Observable<any> {
     const url = `${this.apiUrl}?part=snippet&type=video&q=${encodeURIComponent(ciudad)} turismo&maxResults=3&key=${this.apiKey}`;
     return this.http.get<any>(url);
   }
 
-  // 🌍 Busca videos de turismo al azar si no hay búsqueda
+  // Busca videos de turismo al azar si no hay búsqueda
   buscarVideosPorDefecto(): Observable<any> {
     const temas = ['viajes', 'turismo', 'destinos increíbles', 'playas hermosas', 'ciudades hermosas'];
     const temaAleatorio = temas[Math.floor(Math.random() * temas.length)];
