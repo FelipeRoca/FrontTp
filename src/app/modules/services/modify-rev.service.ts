@@ -9,11 +9,9 @@ import { Observable } from 'rxjs';
 })
 export class ResServiceService {
   private baseUrl="http://localhost:3001"
-  //private reviews?;
 
   constructor(private http: HttpClient) { }
 
-// En ResServiceService
 putReviews(reviewPut: any): Observable<any> {
     return this.http.put(`${this.baseUrl}/reviews/${reviewPut.id}`, reviewPut);
   }

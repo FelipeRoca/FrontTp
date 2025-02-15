@@ -6,7 +6,6 @@ import { Injectable } from '@angular/core';
 })
 export class ResServiceService {
   private baseUrl="http://localhost:3001"
-  //private reviews?;
 
   constructor(private http: HttpClient) { }
 

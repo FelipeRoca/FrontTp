@@ -40,7 +40,6 @@ export class CustomLabelDirective implements OnInit {
   setStyle(): void {
     if (!this.htmlElement) return;
     this.htmlElement.nativeElement.style.color = this._color;
-    // this.htmlElement.nativeElement.classList.add('invisible');
   }
 
   setErrorMessage(): void {

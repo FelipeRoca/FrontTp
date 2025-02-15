@@ -14,7 +14,7 @@ export class MenubarComponent implements OnInit {
   constructor(private authService: AuthService) {}
 
   ngOnInit() {
-    this.setMenuItems(); // Inicializa los ítems del menú al cargar
+    this.setMenuItems();
   }
 
   setMenuItems() {
@@ -39,6 +39,6 @@ export class MenubarComponent implements OnInit {
   logout() {
     this.authService.logout();
     this.router.navigateByUrl('/inicio')
-    this.setMenuItems(); // Actualizar los ítems del menú después de hacer logout
+    this.setMenuItems(); // Actualizar después de logout
   }
 }

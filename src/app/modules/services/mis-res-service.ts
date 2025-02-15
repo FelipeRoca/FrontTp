@@ -11,7 +11,6 @@ export class ResServiceService {
     constructor(private http: HttpClient) { }
   
     getReviewsByUserId(userId: number): Observable<any> {
-      // Modifica la URL para incluir el filtro por userId
       return this.http.get(`${this.baseUrl}/reviews/usuario/${userId}`);
     }
 

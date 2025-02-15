@@ -7,24 +7,24 @@ import { environment } from '../../environments/environments';
   providedIn: 'root',
 })
 export class ReviewService {
-  private reviewSubject = new BehaviorSubject<any>(null); // Inicia con un valor nulo
-  review$ = this.reviewSubject.asObservable(); // Observable para que otros componentes puedan suscribirse a los cambios
+  private reviewSubject = new BehaviorSubject<any>(null); 
+  review$ = this.reviewSubject.asObservable(); 
 
-  constructor(private http: HttpClient) {} // Inyecta HttpClient para hacer solicitudes HTTP
+  constructor(private http: HttpClient) {} 
 
-  // Método para establecer una revisión
+  
   setReview(review: any) {
-    this.reviewSubject.next(review); // Actualiza la revisión
+    this.reviewSubject.next(review); 
   }
 
-  // Método para obtener la revisión
+  
   getReview() {
-    return this.reviewSubject.value; // Obtiene la revisión actual
+    return this.reviewSubject.value; 
   }
 
-  // Método para actualizar la revisión en el servidor (puedes cambiar la URL según tu API)
+  
   putReviews(review: any): Observable<any> {
-    const url = `${environment.baseUrl}/reviews`; // Usa la URL de tu API
-    return this.http.put<any>(url, review); // Enviar una solicitud PUT con la revisión
+    const url = `${environment.baseUrl}/reviews`; 
+    return this.http.put<any>(url, review); 
   }
 }

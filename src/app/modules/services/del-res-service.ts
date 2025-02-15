@@ -12,7 +12,6 @@ export class DelResServiceService {
     constructor(private http: HttpClient) { }
   
     deleteReview(reviewId: ReviewId): Observable<any> {
-      // Modifica la URL para incluir el filtro por reviewId
       return this.http.delete(`${this.baseUrl}/reviews/${reviewId.id}`);
     }
  }

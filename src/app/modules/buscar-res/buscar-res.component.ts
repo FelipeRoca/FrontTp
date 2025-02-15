@@ -28,6 +28,7 @@ export class BuscarResComponent implements OnInit {
   weather: string = '';
   temperature: number | null = null;
   humidity: number | null = null;
+  
 
   imagenes: any[] = [];  
 

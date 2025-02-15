@@ -9,7 +9,6 @@ import { Observable } from 'rxjs';
 })
 export class ResServiceService {
   private baseUrl="http://localhost:3001"
-  //private reviews?;
 
   constructor(private http: HttpClient) { }
 

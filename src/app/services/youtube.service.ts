@@ -11,13 +11,13 @@ export class YoutubeService {
 
   constructor(private http: HttpClient) {}
 
-  // Busca videos según una ciudad ingresada
+  //videos según ciudad
   buscarVideos(ciudad: string): Observable<any> {
     const url = `${this.apiUrl}?part=snippet&type=video&q=${encodeURIComponent(ciudad)} turismo&maxResults=3&key=${this.apiKey}`;
     return this.http.get<any>(url);
   }
 
-  // Busca videos de turismo al azar si no hay búsqueda
+  //videos al azar si no hay búsqueda
   buscarVideosPorDefecto(): Observable<any> {
     const temas = ['viajes', 'turismo', 'destinos increíbles', 'playas hermosas', 'ciudades hermosas'];
     const temaAleatorio = temas[Math.floor(Math.random() * temas.length)];

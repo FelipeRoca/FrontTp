@@ -10,7 +10,6 @@ import { MisResComponent } from './modules/mis-res/mis-res.component';
 import { ModifyReviewComponent } from './modules/modify-review/modify-review.component';
 
 const routes: Routes = [
-    /*{path:'', redirectTo:'/welcome', pathMatch:'full'},*/
     {path:'', redirectTo:'/welcome', pathMatch:'full'},
     {path: 'iniciar-sesion', component:LoginComponent},
     {path: 'registrarse', component:SiginComponent},
