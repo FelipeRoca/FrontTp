@@ -72,3 +72,7 @@ export class MisResComponent implements OnInit {
     this.route.navigate(['/modify', review.id]);
   }
 }
+
+
+
+

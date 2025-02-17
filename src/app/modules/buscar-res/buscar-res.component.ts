@@ -9,7 +9,7 @@ import * as L from 'leaflet';
 import { YoutubeService } from '../../services/youtube.service';
 import { UnsplashService } from '../services/unsplash.service';  
 
-type Clima = "Sunny" | "Partly cloudy" | "Cloudy" | "Rainy" | "Stormy" | "Windy" | "Foggy" | "Snowy";
+type Clima = "Sunny" | "Partly cloudy" | "Cloudy" | "Rainy" | "Stormy" | "Windy" | "Foggy" | "Snowy" | "Overcast" | "Clear";
 
 @Component({
   selector: 'app-buscar-res',
@@ -73,7 +73,9 @@ export class BuscarResComponent implements OnInit {
       Stormy: "Tormentoso",
       Windy: "Ventoso",
       Foggy: "Con niebla",
-      Snowy: "Nevado"
+      Snowy: "Nevado",
+      Overcast: "Nublado",
+      Clear: "Despejado"
     };
 
     return condiciones[estado as Clima] || estado;
