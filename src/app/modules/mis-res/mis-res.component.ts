@@ -19,6 +19,7 @@ export class MisResComponent implements OnInit {
   sesion: boolean = false;
   selectedReview: any;
   selectedReviewIndex?: number;
+  noReviews: boolean = false;  
 
   items: MenuItem[] | undefined;
 
@@ -33,7 +34,7 @@ export class MisResComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-        const currentUser = this.authService.currentUser();
+    const currentUser = this.authService.currentUser();
     if (!currentUser) {
       this.sesion = true;
     }
@@ -42,6 +43,13 @@ export class MisResComponent implements OnInit {
 
     this.resServiceService.getReviewsByUserId(userId).subscribe(reviews => {
       this.reviews = reviews;
+      
+      if (this.reviews.length === 0) {
+        this.noReviews = true;  
+        setTimeout(() => {
+          this.route.navigate(['/inicio']);  
+        }, 3000);
+      }
     });
   }
 
@@ -72,7 +80,3 @@ export class MisResComponent implements OnInit {
     this.route.navigate(['/modify', review.id]);
   }
 }
-
-
-
-
