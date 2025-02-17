@@ -11,7 +11,17 @@ export class WelcomeComponent {
 
   items: MenuItem[] | undefined;
 
-   ngOnInit() {
-
+  ngOnInit() {
+    const video = document.querySelector('.background-video') as HTMLVideoElement;   //Para que se reproduzca el video apenas carga la pagina
+    if (video) {
+      setTimeout(() => {
+        video.muted = true; 
+        video.play().catch(error => {
+          console.log('Autoplay bloqueado, esperando interacción del usuario:', error);
+        });
+      }, 800);
     }
+  }
+  
+  
 }

@@ -21,9 +21,9 @@ export class LoginComponent implements OnInit {
   });
 
   public passwordVisible: boolean = false;
+  public loginErrorModal: boolean = false;  
 
   ngOnInit() {
-    // Si el usuario ya está logueado, redirigirlo al inicio
     if (this.authService.isAuthenticated()) {
       this.router.navigateByUrl('/inicio');
     }
@@ -31,7 +31,6 @@ export class LoginComponent implements OnInit {
 
   onSubmit(): void {
     if (this.myForm.invalid) {
-      console.log(this.myForm.errors);
       return;
     }
 
@@ -39,12 +38,17 @@ export class LoginComponent implements OnInit {
 
     this.authService.login(email, password).subscribe({
       next: () => {
-        this.router.navigateByUrl('/inicio'); // Redirigir al inicio después de loguearse
+        this.router.navigateByUrl('/inicio');
       },
-      error: (err) => {
-        console.error('Error al iniciar sesión:', err);
+      error: () => {
+        this.loginErrorModal = true;  
       }
     });
+  }
+
+
+  closeModal(): void {
+    this.loginErrorModal = false;
   }
 
   onShow(): void {
@@ -55,3 +59,4 @@ export class LoginComponent implements OnInit {
     return this.passwordVisible ? 'text' : 'password';
   }
 }
+
