@@ -31,6 +31,7 @@ export class BuscarResComponent implements OnInit {
   
 
   imagenes: any[] = [];  
+  restablecer: boolean = false;
 
   constructor(
     private resServiceService: ResServiceService,
@@ -136,7 +137,7 @@ export class BuscarResComponent implements OnInit {
     this.buscarImagenesDeCiudad('city of ' + cityName.value);
   }
 
-  // Mostrar información de la ciudad seleccionada
+
   mostrarInput(valor: any): void {
     this.selectedCity = valor.value;
     this.buscarResService.getReviewsByCityName(valor.value).subscribe(reviews => {
@@ -157,7 +158,7 @@ export class BuscarResComponent implements OnInit {
           console.warn(`No se encontraron coordenadas para la dirección: ${direccion}`);
         }
       });
-
+      this.restablecer = true;
       this.getTripAdvisorHotels(this.selectedCity);
       this.getWeather(this.selectedCity);
       this.getVideos(this.selectedCity);
@@ -230,6 +231,7 @@ export class BuscarResComponent implements OnInit {
       this.tripAdvisorSearchUrl = '';
       this.getVideos('');
       this.imagenes = [];  
+      this.restablecer = false;
     });
   }
 }

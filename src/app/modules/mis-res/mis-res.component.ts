@@ -48,7 +48,7 @@ export class MisResComponent implements OnInit {
         this.noReviews = true;  
         setTimeout(() => {
           this.route.navigate(['/inicio']);  
-        }, 3000);
+        }, 4000);
       }
     });
   }
