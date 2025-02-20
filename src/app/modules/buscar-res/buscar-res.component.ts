@@ -9,7 +9,7 @@ import * as L from 'leaflet';
 import { YoutubeService } from '../../services/youtube.service';
 import { UnsplashService } from '../services/unsplash.service';  
 
-type Clima = "Sunny" | "Partly cloudy" | "Cloudy" | "Rainy" | "Stormy" | "Windy" | "Foggy" | "Snowy" | "Overcast" | "Clear";
+type Clima = "Sunny" | "Partly cloudy" | "Cloudy" | "Rainy" | "Stormy" | "Windy" | "Foggy" | "Snowy" | "Overcast" | "Clear" | "Thunderstorm" | "Drizzle" | "Mist";
 
 @Component({
   selector: 'app-buscar-res',
@@ -20,7 +20,6 @@ export class BuscarResComponent implements OnInit {
   reviews: any[] = [];
   items: MenuItem[] | undefined;
   map: L.Map | undefined;
-  resButton: boolean = false;
   showTripAdvisor: boolean = false;
   selectedCity: string = '';
   tripAdvisorSearchUrl: string = '';
@@ -28,8 +27,6 @@ export class BuscarResComponent implements OnInit {
   weather: string = '';
   temperature: number | null = null;
   humidity: number | null = null;
-  
-
   imagenes: any[] = [];  
   restablecer: boolean = false;
 
@@ -76,10 +73,13 @@ export class BuscarResComponent implements OnInit {
       Foggy: "Con niebla",
       Snowy: "Nevado",
       Overcast: "Nublado",
-      Clear: "Despejado"
+      Clear: "Despejado",
+      Thunderstorm: "Tormenta electrica",
+      Drizzle: "Llovizna",
+      Mist: "Neblina"
     };
 
-    return condiciones[estado as Clima] || estado;
+    return condiciones[estado as Clima] || estado;  //si no esta definido devuelve el original
   }
 
   inicializarMapa() {
@@ -101,7 +101,7 @@ export class BuscarResComponent implements OnInit {
       this.geocodeService.geocodeDireccion(direccion).subscribe((result: any) => {
         const location = result[0];
         if (location && location.lat && location.lon) {
-          const marker = L.marker([location.lat, location.lon]).addTo(this.map!);
+          const marker = L.marker([location.lat, location.lon]).addTo(this.map!);   //para crear unmarcador  y agrwegarlo al mapa
           marker.bindPopup(direccion).openPopup();
         } else {
           console.warn(`No se encontraron coordenadas para la dirección: ${direccion}`);
@@ -114,7 +114,6 @@ export class BuscarResComponent implements OnInit {
   buscarReview(cityName: any, countryName: any): void {
     console.log(cityName, countryName);
     const direccion = `${cityName.value}, ${countryName.value}`;
-    this.resButton = true;
     
     this.buscarResService.getReviewsByCityName(cityName.value).subscribe(reviews => {
       if (Array.isArray(reviews)) {
@@ -134,7 +133,6 @@ export class BuscarResComponent implements OnInit {
       });
     });
 
-    this.buscarImagenesDeCiudad('city of ' + cityName.value);
   }
 
 
@@ -162,7 +160,7 @@ export class BuscarResComponent implements OnInit {
       this.getTripAdvisorHotels(this.selectedCity);
       this.getWeather(this.selectedCity);
       this.getVideos(this.selectedCity);
-      this.buscarImagenesDeCiudad(valor.value);
+      this.buscarImagenesDeCiudad(this.selectedCity);
     });
   }
 
