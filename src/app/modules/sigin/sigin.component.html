@@ -18,7 +18,7 @@
         <label for="exampleInputEmail1" class="form-label">Correo electrónico</label>
         <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="ejemplo@hotmail.com" formControlName="email">
         <div id="emailHelp" class="form-text">Nunca compartiremos su correo electrónico</div>
-        <p customLabel [isTouched]="myForm.get('email')?.touched" [errors]="myForm.get('email')?.errors"></p>
+        <p customLabel [isTouched]="myForm.get('email')?.touched" [errors]="myForm.get('email')?.errors"></p>     <!-- si el usuario ingresa un mail invalido se activa el mensaje de error desde la directiva customlabel (el istouched se usa para saber que ha modificado los valoers por defecto el ususario) -->
       </div>
 
       <div class="mb-3" class="mx-auto">

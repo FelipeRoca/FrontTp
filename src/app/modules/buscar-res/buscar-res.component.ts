@@ -16,6 +16,7 @@ type Clima = "Sunny" | "Partly cloudy" | "Cloudy" | "Rainy" | "Stormy" | "Windy"
   templateUrl: './buscar-res.component.html',
   styleUrls: ['./buscar-res.component.css']
 })
+
 export class BuscarResComponent implements OnInit {
   reviews: any[] = [];
   items: MenuItem[] | undefined;
@@ -95,14 +96,13 @@ export class BuscarResComponent implements OnInit {
       console.error('El mapa no está inicializado.');
       return;
     }
-
     this.reviews.forEach(review => {
       const direccion = `${review.City.name}, ${review.City.Country.name}`;
       this.geocodeService.geocodeDireccion(direccion).subscribe((result: any) => {
-        const location = result[0];
+        const location = result[0];                                     //devuelve un array de locations, elegimos la primera
         if (location && location.lat && location.lon) {
           const marker = L.marker([location.lat, location.lon]).addTo(this.map!);   //para crear unmarcador  y agrwegarlo al mapa
-          marker.bindPopup(direccion).openPopup();
+          marker.bindPopup(direccion).openPopup();                  //para q al hacer click en un marcadoer se vea el nombre de la ciudad
         } else {
           console.warn(`No se encontraron coordenadas para la dirección: ${direccion}`);
         }
@@ -110,30 +110,6 @@ export class BuscarResComponent implements OnInit {
     });
   }
 
-  // Buscar reseñas por ciudad
-  buscarReview(cityName: any, countryName: any): void {
-    console.log(cityName, countryName);
-    const direccion = `${cityName.value}, ${countryName.value}`;
-    
-    this.buscarResService.getReviewsByCityName(cityName.value).subscribe(reviews => {
-      if (Array.isArray(reviews)) {
-        this.reviews = reviews;
-      } else {
-        this.reviews = [reviews];
-      }
-      console.log(this.reviews);
-
-      this.geocodeService.geocodeDireccion(direccion).subscribe((result: any) => {
-        const location = result[0];
-        if (location && location.lat && location.lon && this.map) {
-          this.map.setView([location.lat, location.lon], 10);
-        } else {
-          console.warn(`No se encontraron coordenadas para la dirección: ${direccion}`);
-        }
-      });
-    });
-
-  }
 
 
   mostrarInput(valor: any): void {

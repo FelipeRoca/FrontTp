@@ -37,12 +37,12 @@ export class CustomLabelDirective implements OnInit {
     this.setStyle();
   }
 
-  setStyle(): void {
+  setStyle(): void {                                             // cambia el color del texto del <p>, aplicando el rojo por defecto.
     if (!this.htmlElement) return;
     this.htmlElement.nativeElement.style.color = this._color;
   }
 
-  setErrorMessage(): void {
+  setErrorMessage(): void {                                       // metodo para mostrar los mensajes de error
     if (!this.htmlElement) return;
 
     const element = this.htmlElement.nativeElement;
