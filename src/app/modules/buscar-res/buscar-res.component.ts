@@ -65,6 +65,7 @@ export class BuscarResComponent implements OnInit {
             if (location && location.lat && location.lon && this.map) {
               const marker = L.marker([location.lat, location.lon]).addTo(this.map!);   //para crear unmarcador  y agrwegarlo al mapa
               marker.bindPopup(direccion).openPopup();  
+              this.map.setView([location.lat, location.lon], 10);
             } else {
               console.warn(`No se encontraron coordenadas para la dirección: ${direccion}`);
             }
