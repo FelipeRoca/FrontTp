@@ -17,6 +17,8 @@ import { CustomLabelDirective } from './modules/directives/custom-label.directiv
 import { ModifyReviewComponent } from './modules/modify-review/modify-review.component';
 import { DialogModule } from 'primeng/dialog';
 import { MenubarComponent } from './components/menubar/menubar.component';
+import { CityCardsComponent } from './components/city-cards/city-cards.component';
+
 
 @NgModule({
   declarations: [
@@ -30,7 +32,8 @@ import { MenubarComponent } from './components/menubar/menubar.component';
     MisResComponent,
     CustomLabelDirective,
     ModifyReviewComponent,
-    MenubarComponent
+    MenubarComponent,
+    CityCardsComponent
   ],
   imports: [
     BrowserModule,

@@ -8,6 +8,7 @@ import { MenuItem } from 'primeng/api';
 import * as L from 'leaflet';
 import { YoutubeService } from '../../services/youtube.service';
 import { UnsplashService } from '../services/unsplash.service';  
+import { ActivatedRoute } from '@angular/router';
 
 type Clima = "Sunny" | "Partly cloudy" | "Cloudy" | "Rainy" | "Stormy" | "Windy" | "Foggy" | "Snowy" | "Overcast" | "Clear" | "Thunderstorm" | "Drizzle" | "Mist";
 
@@ -37,17 +38,54 @@ export class BuscarResComponent implements OnInit {
     private weatherService: WeatherService,  
     private geocodeService: GeocodeService, 
     private youtubeService: YoutubeService,
-    private unsplashService: UnsplashService  
+    private unsplashService: UnsplashService,
+    private activatedRoute: ActivatedRoute,  
   ) {}
 
   ngOnInit(): void {
-    this.resServiceService.getReviews().subscribe((reviews: any) => {
-      this.reviews = Array.isArray(reviews) ? reviews : [reviews];
-      console.log(this.reviews);
+    window.scrollTo(0, 0);
+    this.activatedRoute.params.subscribe(params => {   //p obtener la ciudad
+      const ciudad = params['city'];
 
-      this.inicializarMapa();
-      this.geocodeYMostrarLugaresEnMapa();
-      this.getVideos('');
+      if (ciudad) {
+        this.selectedCity = ciudad;
+        this.buscarResService.getReviewsByCityName(ciudad).subscribe(reviews => {
+          if (Array.isArray(reviews)) {
+            this.reviews = reviews;
+          } else {
+            this.reviews = [reviews];
+          }
+
+          console.log(this.reviews);
+          this.inicializarMapa();
+          const ciudad = this.reviews[0].City;
+          const direccion = `${ciudad.name}, ${ciudad.Country.name}`;
+          this.geocodeService.geocodeDireccion(direccion).subscribe((result: any) => {
+            const location = result[0];
+            if (location && location.lat && location.lon && this.map) {
+              const marker = L.marker([location.lat, location.lon]).addTo(this.map!);   //para crear unmarcador  y agrwegarlo al mapa
+              marker.bindPopup(direccion).openPopup();  
+            } else {
+              console.warn(`No se encontraron coordenadas para la dirección: ${direccion}`);
+            }
+          });
+
+          this.restablecer = true;
+          this.getTripAdvisorHotels(this.selectedCity);
+          this.getWeather(this.selectedCity);
+          this.getVideos(this.selectedCity);
+          this.buscarImagenesDeCiudad(this.selectedCity);
+        });
+      } else {                  //si no viene por la card q muestre todo
+        this.resServiceService.getReviews().subscribe((reviews: any) => {
+          this.reviews = Array.isArray(reviews) ? reviews : [reviews];
+          console.log(this.reviews);
+
+          this.inicializarMapa();
+          this.geocodeYMostrarLugaresEnMapa();
+          this.getVideos('');
+        });
+      }
     });
   }
 
@@ -80,7 +118,7 @@ export class BuscarResComponent implements OnInit {
       Mist: "Neblina"
     };
 
-    return condiciones[estado as Clima] || estado;  //si no esta definido devuelve el original
+    return condiciones[estado as Clima] || estado;
   }
 
   inicializarMapa() {

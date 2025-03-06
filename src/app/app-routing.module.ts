@@ -19,6 +19,7 @@ const routes: Routes = [
     {path: 'buscar', component:BuscarResComponent},
     {path: 'mis-res', component:MisResComponent},
     { path: 'modify/:id', component: ModifyReviewComponent },
+    { path: 'buscar/:city', component: BuscarResComponent },
 
 
 

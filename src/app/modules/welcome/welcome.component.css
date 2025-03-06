@@ -1,4 +1,4 @@
-.video-container {
+ .video-container {
   position: relative;
   width: 100%;
   height: 100vh;
@@ -25,14 +25,6 @@
   z-index: 1;
 }
 
-.title1 {
-  position: absolute; 
-  top: 0; 
-  left: 0; 
-  width: 100%; 
-  z-index: 2;
-}
-
 .container {
   position: relative; 
   text-align: center; 
@@ -49,7 +41,7 @@
 
 .display-1 {
   margin-top: 180%;
-  margin-bottom:20%;
+  margin-bottom: 20%;
 }
 
 .btn-primary {
@@ -57,3 +49,36 @@
   width: 15vw;
 }
 
+/* Estilos para la nueva sección en blanco */
+.blank-section {
+  min-height: 100vh; /* Ocupa al menos el alto de la pantalla */
+  background-color: #fff; /* Fondo blanco */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem; /* Opcional: para dar espacio interno */
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+.arrow-down-animated {
+  margin-top: 85px;
+  width: 45px; 
+  height: 45px; 
+  animation: blinker 3s linear infinite; 
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0; 
+  }
+}
