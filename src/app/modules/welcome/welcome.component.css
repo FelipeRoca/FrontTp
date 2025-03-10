@@ -49,14 +49,14 @@
   width: 15vw;
 }
 
-/* Estilos para la nueva sección en blanco */
+
 .blank-section {
-  min-height: 100vh; /* Ocupa al menos el alto de la pantalla */
-  background-color: #fff; /* Fondo blanco */
+  min-height: 100vh; 
+  background-color: #fff; 
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 2rem; /* Opcional: para dar espacio interno */
+  padding: 2rem; 
   position: relative;
   z-index: 3;
   width: 100%;

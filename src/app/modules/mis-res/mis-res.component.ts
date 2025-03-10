@@ -5,7 +5,6 @@ import { AuthService } from '../services/auth.service';
 import { ResServiceService } from '../services/mis-res-service';
 import { DelResServiceService } from '../services/del-res-service';
 import { HttpClient } from '@angular/common/http';
-import { LocalStorageService } from '../services/local-storage.service'; 
 import { SharedReviewService } from '../services/shared-review.service';
 
 @Component({
@@ -29,7 +28,6 @@ export class MisResComponent implements OnInit {
     private authService: AuthService,
     private route: Router,
     private resServiceService: ResServiceService,
-    private localStorageService: LocalStorageService,
     private sharedReviewService: SharedReviewService,
   ) { }
 

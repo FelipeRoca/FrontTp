@@ -68,8 +68,9 @@ body {
     color: #ffffff;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    height: 6vh;
-    width: 15vw;
+    width: auto; 
+    max-width: 100%; 
+    height: auto;
 }
 
 .btn-primary:hover {

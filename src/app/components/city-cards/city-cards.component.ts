@@ -8,8 +8,9 @@ import { City } from 'src/app/modules/interfaces/city.interface';
   templateUrl: './city-cards.component.html',
   styleUrls: ['./city-cards.component.css']
 })
+
 export class CityCardsComponent implements OnInit {
-  @Output() selectCity = new EventEmitter<string>();
+  @Output() selectCity = new EventEmitter<string>();   //para pasarle el nombte de la ciudad seleccionada a otros componentes
   cities: City[] = [];
   private defaultImage = 'https://cdn.pixabay.com/photo/2016/09/12/17/00/antwerp-1665194_640.jpg';    //imagen por defecto
 

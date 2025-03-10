@@ -15,11 +15,6 @@
     border: solid 2px;
  }
 
- .title-body{
-    text-align: center; 
-    color: black;
- }
-
  .main-div{
     margin: 0 auto; 
     display: flex; 
@@ -49,11 +44,6 @@
     text-align: center;
  }
 
- .d-flex justify-content-center{
-     display: block;
-     height: 50vh;
-     width: 100vw;
- }
 
  .map-div{
     width: 90vw; 
@@ -138,53 +128,7 @@
    font-size: 14px;
    color: #333;
  }
- 
 
-
- .galeria-imagenes {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 15px;  
-  justify-content: center;  
-}
-
-.imagen-card {
-  width: 250px;  
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
-  transition: transform 0.3s ease;  
-}
-
-.imagen-card:hover {
-  transform: scale(1.05);  
-}
-
-.imagen-card img {
-  width: 100%;
-  height: auto;
-  display: block;
-  border-radius: 10px;
-}
-
-
-#imageCarousel {
-  max-width: 100%;  
-  margin: 20px auto;  
-  border-radius: 8px;  
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  
-}
-
-.carousel-inner img {
-  width: 100%;  
-  height: auto; 
-  border-radius: 8px;  
-}
-
-.carousel-control-prev-icon,
-.carousel-control-next-icon {
-  background-color: #135B9E;  
-}
 
 
 .card {
@@ -200,3 +144,6 @@
 img {
   border-radius: 8px; 
 }
+
+
+

@@ -13,8 +13,4 @@ export class SharedReviewService {
   getReview() {
     return this.review;
   }
-
-  clearReview() {
-    this.review = null;
-  }
 }

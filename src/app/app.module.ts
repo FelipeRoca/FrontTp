@@ -18,6 +18,7 @@ import { ModifyReviewComponent } from './modules/modify-review/modify-review.com
 import { DialogModule } from 'primeng/dialog';
 import { MenubarComponent } from './components/menubar/menubar.component';
 import { CityCardsComponent } from './components/city-cards/city-cards.component';
+import { CarouselModule } from 'ngx-bootstrap/carousel';
 
 
 @NgModule({
@@ -43,7 +44,8 @@ import { CityCardsComponent } from './components/city-cards/city-cards.component
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    DialogModule
+    DialogModule,
+    CarouselModule,
 
   ],
   providers: [],

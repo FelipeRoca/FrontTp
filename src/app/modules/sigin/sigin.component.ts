@@ -1,13 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { MenuItem } from 'primeng/api';
-import { User } from '../interfaces/user.interface';
-import { AbstractControl, AsyncValidatorFn, FormBuilder, FormGroup, ValidationErrors, Validators } from '@angular/forms';
-import { ResServiceService } from '../services/signup-re.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { take } from 'rxjs/operators';
-import { NgForm } from '@angular/forms';
-import { ReactiveFormsModule } from '@angular/forms';
-import { Observable } from 'rxjs';
 import { ValidatorsService } from '../services/validators.service';
 import { AuthService } from '../services/auth.service';
 

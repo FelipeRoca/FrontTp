@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import { MenuItem } from 'primeng/api';
-import { MenubarComponent } from 'src/app/components/menubar/menubar.component';
 
 @Component({
   selector: 'app-welcome',
@@ -8,9 +6,6 @@ import { MenubarComponent } from 'src/app/components/menubar/menubar.component';
   styleUrls: ['./welcome.component.css']
 })
 export class WelcomeComponent {
-
-  items: MenuItem[] | undefined;
-
   ngOnInit() {
     const videos = document.querySelectorAll<HTMLVideoElement>('.background-video');
       videos.forEach(video => {
@@ -23,7 +18,6 @@ export class WelcomeComponent {
 });
 
   }
-  
-  
+   
 }
 

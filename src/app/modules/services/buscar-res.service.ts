@@ -6,6 +6,7 @@ import { environment } from 'src/app/environments/environments';
 @Injectable({
  providedIn: 'root'
 })
+
 export class BuscarResService {
     private readonly baseUrl: string = environment.baseUrl;
   

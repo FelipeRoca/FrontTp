@@ -1,4 +1,3 @@
-
 import { Component, OnInit } from '@angular/core';
 import { ResServiceService } from '../services/res-service.service';
 import { BuscarResService } from '../services/buscar-res.service';
@@ -10,13 +9,15 @@ import { YoutubeService } from '../../services/youtube.service';
 import { UnsplashService } from '../services/unsplash.service';  
 import { ActivatedRoute } from '@angular/router';
 
+
 type Clima = "Sunny" | "Partly cloudy" | "Cloudy" | "Rainy" | "Stormy" | "Windy" | "Foggy" | "Snowy" | "Overcast" | "Clear" | "Thunderstorm" | "Drizzle" | "Mist";
 
 @Component({
   selector: 'app-buscar-res',
   templateUrl: './buscar-res.component.html',
-  styleUrls: ['./buscar-res.component.css']
+  styleUrls: ['./buscar-res.component.css'],
 })
+
 
 export class BuscarResComponent implements OnInit {
   reviews: any[] = [];

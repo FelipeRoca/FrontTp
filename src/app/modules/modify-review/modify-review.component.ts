@@ -3,7 +3,6 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ResServiceService } from '../services/modify-rev.service';
 import { Router } from '@angular/router';
 import { MenuItem } from 'primeng/api';
-import { LocalStorageService } from '../services/local-storage.service'; 
 import { SharedReviewService } from '../services/shared-review.service';
 
 @Component({
@@ -20,7 +19,6 @@ export class ModifyReviewComponent implements OnInit {
     private fb: FormBuilder,
     private reviewService: ResServiceService,
     private router: Router,
-    private localStorageService: LocalStorageService,
     private sharedReviewService: SharedReviewService
   ) {
     this.myForm = this.fb.group({

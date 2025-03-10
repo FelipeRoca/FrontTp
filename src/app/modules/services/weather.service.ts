@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';  //para las peticiones
-import { Observable } from 'rxjs';         //para manejar las respuestas de las peticiones
+import { HttpClient } from '@angular/common/http';  
+import { Observable } from 'rxjs';         
 
 @Injectable({
   providedIn: 'root'
