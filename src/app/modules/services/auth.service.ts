@@ -18,7 +18,14 @@ export class AuthService {
   public currentUser = computed(() => this._currentUser());
   public authStatus = computed(() => this._authStatus());
 
-  constructor(private http: HttpClient, private storageService: StorageService) {}
+  constructor(private http: HttpClient, private storageService: StorageService) {
+    const token = this.storageService.getToken();
+    if (token) {
+      this._authStatus.set(AuthStatus.authenticated);
+    } else {
+      this._authStatus.set(AuthStatus.notAuthenticated);
+    }
+  }
 
   private setAuthentication(user: User, token: string): boolean {
     this._currentUser.set(user);

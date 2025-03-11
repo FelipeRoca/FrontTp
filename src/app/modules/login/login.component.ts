@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     if (this.authService.isAuthenticated()) {
-      this.router.navigateByUrl('/inicio');
+      this.router.navigateByUrl('/inicio');   //faltaria modal
     }
   }
 

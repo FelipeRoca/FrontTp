@@ -3,9 +3,10 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root'
 })
+
 export class StorageService {
 
-  private readonly TOKEN_KEY = 'token';
+ private readonly TOKEN_KEY = 'token';
 
   setToken(token: string): void {
     localStorage.setItem(this.TOKEN_KEY, token);

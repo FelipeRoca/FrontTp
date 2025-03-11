@@ -16,8 +16,11 @@ export class UnsplashService {
     const params = new HttpParams()
       .set('query', ciudad)
       .set('client_id', this.accessKey)  
-      .set('per_page', '10');  
+      .set('per_page', '10');          //imagenes a recibir
 
     return this.http.get(this.apiUrl, { params });
   }
 }
+  //obtenes: https://api.unsplash.com/search/photos?query=Madrid&client_id=xHGh4OIkZ6B3caDy97lZY2vdR4F2wpEJmFVHZMwb2NM&per_page=10
+
+  

@@ -11,10 +11,6 @@ import { AuthService } from '../services/auth.service';
   styleUrls: ['./sigin.component.css']
 })
 export class SiginComponent {
-
-
-
-
   private fb = inject(FormBuilder);
   private router = inject(Router);
   private validatorsService = inject(ValidatorsService);
