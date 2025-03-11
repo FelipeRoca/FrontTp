@@ -5,10 +5,6 @@ import { Injectable } from '@angular/core';
 })
 
 export class StorageService {
-  static getUser() {
-    throw new Error('Method not implemented.');
-  }
-
  private readonly TOKEN_KEY = 'token';
  private readonly USER_KEY = 'user';
 
