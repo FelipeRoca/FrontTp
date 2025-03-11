@@ -20,8 +20,10 @@ export class AuthService {
 
   constructor(private http: HttpClient, private storageService: StorageService) {
     const token = this.storageService.getToken();
-    if (token) {
+    const user = this.storageService.getUser();
+    if (token && user) {
       this._authStatus.set(AuthStatus.authenticated);
+      this._currentUser.set(user);
     } else {
       this._authStatus.set(AuthStatus.notAuthenticated);
     }
@@ -31,6 +33,7 @@ export class AuthService {
     this._currentUser.set(user);
     this._authStatus.set(AuthStatus.authenticated);
     this.storageService.setToken(token);
+    this.storageService.setUser(user);
     return true;
   }
 
@@ -58,6 +61,7 @@ export class AuthService {
     this._currentUser.set(null);
     this._authStatus.set(AuthStatus.notAuthenticated);
     this.storageService.removeToken();
+    this.storageService.removeUser();
   }
 
   isAuthenticated(): boolean {

@@ -5,6 +5,7 @@ import { ResServiceService } from '../services/red-res-service';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { MenuItem } from 'primeng/api';
+import { StorageService } from '../services/storage.service';
 
 
 @Component({
@@ -31,7 +32,7 @@ export class RedactarComponent implements OnInit {
   });
 
   ngOnInit() {
-        const currentUser = this.authService.currentUser();
+   const currentUser = this.authService.currentUser();
     if (!currentUser) {
       this.sesion = true;
     }
