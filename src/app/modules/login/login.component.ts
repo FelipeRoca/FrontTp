@@ -1,69 +1,62 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { MenuItem } from 'primeng/api';
-
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from '../services/auth.service';
+import { Router } from '@angular/router';
+import { ValidatorsService } from '../services/validators.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
+  private fb = inject(FormBuilder);
+  private authService = inject(AuthService);
+  private router = inject(Router);
+  private validatorsService = inject(ValidatorsService);
 
-   mostrarClave() {
-    const passwordInput = document.getElementById('exampleInputPassword1') as HTMLInputElement;
+  public myForm: FormGroup = this.fb.group({
+    email: ['1111@gmail.com', [Validators.required, Validators.pattern(this.validatorsService.emailPattern)]],
+    password: ['1111', [Validators.required]],
+  });
 
-    if (passwordInput.type === 'password') {
-      passwordInput.type = 'text';
-    } else {
-      passwordInput.type = 'password';
+  public passwordVisible: boolean = false;
+  public loginErrorModal: boolean = false;  
+
+  ngOnInit() {
+    if (this.authService.isAuthenticated()) {
+      this.router.navigateByUrl('/inicio');   //faltaria modal
     }
   }
 
-  /* Barra de navegacion */
-
-  items: MenuItem[] | undefined;
-
-   ngOnInit() {
-        this.items = [
-            {
-                label: 'Home',
-                icon: 'pi pi-fw pi-file',
-                items: [] 
-            },
-            {
-              icon: 'pi pi-fw pi-pencil',
-              disabled: true,
-              label: 'Reseñas',
-                items: [
-                    {
-                        label: 'Crear Reseña',
-                        icon: 'pi pi-fw pi-align-left'
-                    },
-                    {
-                        label: 'Leer Reseñas',
-                        icon: 'pi pi-fw pi-align-right'
-                    },
-                    {
-                        label: 'Eliminar Reseña',
-                        icon: 'pi pi-fw pi-align-center'
-                    },
-                ]
-            },
-            {
-                label: 'Iniciar Sesion',
-                routerLink: ['.'],
-                icon: 'pi pi-fw pi-user',
-                items: []
-            },
-            {
-                label: 'Registrarse',
-                routerLink: ['/registrarse'],
-                icon: 'pi pi-fw pi-calendar',
-                items: []
-            },
-        ];
+  onSubmit(): void {
+    if (this.myForm.invalid) {
+      return;
     }
 
-}
+    const { email, password } = this.myForm.value;
 
+    this.authService.login(email, password).subscribe({
+      next: () => {
+        this.router.navigateByUrl('/inicio');
+      },
+      error: () => {
+        this.loginErrorModal = true;  
+      }
+    });
+  }
+
+
+  closeModal(): void {
+    this.loginErrorModal = false;
+  }
+
+  onShow(): void {
+    this.passwordVisible = !this.passwordVisible;
+  }
+
+  getPasswordType(): string {
+    return this.passwordVisible ? 'text' : 'password';
+  }
+}
 

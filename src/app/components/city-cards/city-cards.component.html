@@ -1,0 +1,21 @@
+   <div *ngIf="cities.length > 0; else loading" class="city-cards-container">
+    <div *ngFor="let city of cities" class="city-card" (click)="select(city.name)">
+      <div class="cards">
+        <img [src]="city.image" class="card-img-top" alt="Imagen de {{ city.name }}">
+        <div class="card-body">
+          <h5 class="card-title">{{ city.name }}</h5>
+          <p class="card-text">Lee lo que la gente opina sobre {{ city.name }}</p>
+          <a class="btn btn-primary" [routerLink]="['/buscar', city.name]">Reseñas sobre {{ city.name }}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="conteiner-button">
+    <button class="btn-primary" routerLink="/buscar">Descubra todas las reseñas</button>
+  </div>
+  
+  <ng-template #loading>
+    <p>Cargando ciudades...</p>
+  </ng-template>
+  

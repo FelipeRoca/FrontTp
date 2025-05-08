@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './modules/login/login.component';
@@ -13,7 +12,14 @@ import { BuscarResComponent } from './modules/buscar-res/buscar-res.component';
 import { MisResComponent } from './modules/mis-res/mis-res.component';
 import { MenubarModule } from 'primeng/menubar';
 import {HttpClientModule} from '@angular/common/http';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CustomLabelDirective } from './modules/directives/custom-label.directive';
+import { ModifyReviewComponent } from './modules/modify-review/modify-review.component';
+import { DialogModule } from 'primeng/dialog';
+import { MenubarComponent } from './components/menubar/menubar.component';
+import { CityCardsComponent } from './components/city-cards/city-cards.component';
+import { CarouselModule } from 'ngx-bootstrap/carousel';
+
 
 @NgModule({
   declarations: [
@@ -25,7 +31,10 @@ import { ReactiveFormsModule } from '@angular/forms';
     RedactarComponent,
     BuscarResComponent,
     MisResComponent,
-    LoginComponent
+    CustomLabelDirective,
+    ModifyReviewComponent,
+    MenubarComponent,
+    CityCardsComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +42,10 @@ import { ReactiveFormsModule } from '@angular/forms';
     BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    DialogModule,
+    CarouselModule,
 
   ],
   providers: [],

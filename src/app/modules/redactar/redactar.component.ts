@@ -1,8 +1,11 @@
-import { Component, inject } from '@angular/core';
-import { PostReview } from '../interfaces/review.interface';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { PostReview } from '../interfaces/review.interface';
 import { ResServiceService } from '../services/red-res-service';
 import { Router } from '@angular/router';
+import { AuthService } from '../services/auth.service';
+import { MenuItem } from 'primeng/api';
+import { StorageService } from '../services/storage.service';
 
 
 @Component({
@@ -10,47 +13,87 @@ import { Router } from '@angular/router';
   templateUrl: './redactar.component.html',
   styleUrls: ['./redactar.component.css']
 })
-export class RedactarComponent {
-  
-  ciudad!: string;
-  review?: PostReview;
-  
-  //Inyecciones
-  private fb = inject(FormBuilder);
-  private reviewService = inject(ResServiceService);
-  private router = inject(Router);
+export class RedactarComponent implements OnInit {
+  items: MenuItem[] | undefined;
+  sesion: boolean = false;
 
-  //Reactive Form
+  constructor(
+    private fb: FormBuilder,
+    private reviewService: ResServiceService,
+    private router: Router,
+    private authService: AuthService
+  ) {}
+
   public myForm: FormGroup = this.fb.group({
     country: ['', [Validators.required]],
     city: ['', [Validators.required]],
-    description: ['', [Validators.required]], 
-    stars: ['', [Validators.required]]   
-  })
+    description: ['', [Validators.required]],
+    stars: ['', [Validators.required]]
+  });
 
+  ngOnInit() {
+   const currentUser = this.authService.currentUser();
+    if (!currentUser) {
+      this.sesion = true;
+    }
+  }
 
-  //Metodos
+  showCompleteModal() {
+    const modal = document.getElementById('completeModal');
+    if (modal) {
+      modal.style.display = 'block';
+    }
+  }
+
+  closeModal() {
+    const modal = document.getElementById('completeModal');
+    if (modal) {
+      modal.style.display = 'none';
+    }
+  }
+
+  showCorrectModal() {
+    const correctModal = document.getElementById('correctModal');
+    if (correctModal) {
+      correctModal.style.display = 'block';
+    }
+  }
+
+  closeCorrectModal() {
+    const correctModal = document.getElementById('correctModal');
+    if (correctModal) {
+      correctModal.style.display = 'none';
+      this.router.navigateByUrl('/inicio');
+    }
+  }
+
   onFormSubmit() {
-    
-    if(this.myForm.invalid){
-      alert("Complete todos los campos")  
-      return;    
+    if (this.myForm.invalid) {
+      this.showCompleteModal();
+      return;
     }
 
-    this.review = this.myForm.value
-    this.review!.userId= "1"
-    
-    this.reviewService.postReviews(this.review!)
-      .subscribe({
-        next: (res) => {
-          alert(`La review se cargo correctamente`);
-          this.router.navigateByUrl('/mis-res');
-        },
-        error: (error) => {
-          console.log(error);
-        }
-      });
-  }
-  
+    const currentUser = this.authService.currentUser();
+    if (!currentUser) {
+      return;
+    }
 
+    const reviewData = this.myForm.value;
+    const review: PostReview = {
+      userId: currentUser.id,
+      country: reviewData.country,
+      city: reviewData.city,
+      description: reviewData.description,
+      stars: reviewData.stars
+    };
+
+    this.reviewService.postReviews(review).subscribe({
+      next: () => {
+        this.showCorrectModal();
+      },
+      error: (error) => {
+        console.error('Error al guardar la review:', error);
+      }
+    });
+  }
 }

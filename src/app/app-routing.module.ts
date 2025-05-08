@@ -7,17 +7,21 @@ import { RedactarComponent } from './modules/redactar/redactar.component';
 import { InicioComponent } from './modules/inicio/inicio.component';
 import { BuscarResComponent } from './modules/buscar-res/buscar-res.component';
 import { MisResComponent } from './modules/mis-res/mis-res.component';
+import { ModifyReviewComponent } from './modules/modify-review/modify-review.component';
 
 const routes: Routes = [
-    /*{path:'', redirectTo:'/welcome', pathMatch:'full'},*/
-    {path:'', redirectTo:'/iniciar-sesion', pathMatch:'full'},
+    {path:'', redirectTo:'/welcome', pathMatch:'full'},
     {path: 'iniciar-sesion', component:LoginComponent},
     {path: 'registrarse', component:SiginComponent},
     {path: 'welcome', component:WelcomeComponent},
     {path: 'redactar', component:RedactarComponent},
     {path: 'inicio', component:InicioComponent},
     {path: 'buscar', component:BuscarResComponent},
-    {path: 'mis-res', component:MisResComponent}
+    {path: 'mis-res', component:MisResComponent},
+    { path: 'modify/:id', component: ModifyReviewComponent },
+    { path: 'buscar/:city', component: BuscarResComponent },
+
+
 
 ];
 

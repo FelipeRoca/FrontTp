@@ -1,51 +1,88 @@
-<body style="background-color: rgb(221, 221, 221); display: block; height: 100vh;">  
-  <nav class="navbar bg-body-tertiary"  data-bs-theme="dark">
-    <div class="container-fluid">
-        <a class="navbar-brand"  style="color: rgb(221, 221, 221);">Reseñas turisticas</a> 
-    </div>
-  </nav>
+ <body class="body">
 
-    <div style="margin: 0 auto; display: flex; flex-direction: column; justify-content: center; align-items: center; margin-top: 50px;">
+  <div class="card">
+    <app-menubar></app-menubar>
+  </div>
 
-                    <div>
-                        <h1>Mis Reseñas</h1>
-                    </div>
-
-                    <div >
-                        <table class="table" style="width:90vw; margin-top: 50px;">
-                            <thead>
-                              <tr>
-                                <th scope="col" >ID reseña</th>
-                                <th scope="col">Estrellas</th>
-                                <th scope="col">Aclaracion</th>
-                                <th scope="col">Editar reseña</th>
-                                <th scope="col">Modificar reseña</th>
-
-
-                                
-                              </tr>
-                            </thead>
-                            <tbody>                          
-                                <tr *ngFor="let review of reviews">
-                                <th scope="row">{{review.id}}</th>
-                                <td>{{review.stars}}</td>
-                                <td>{{review.description}}</td>
-                                <td><button type="button" class="btn btn-primary" routerLink="/redactar">Modificar</button></td>
-                                <td><button type="button" class="btn btn-danger">Eliminar</button></td>
-                              </tr>
-
-                                
-                            </tbody> 
-                          </table>
-                       </div>
-
+  <div class="container">
+    <div>
+      <h1 class="title1">Mis Reseñas</h1>
     </div>
 
-    
+    <div>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">Ciudad</th>
+            <th scope="col">Estrellas</th>
+            <th scope="col">Aclaracion</th>
+            <th scope="col">Editar reseña</th>
+            <th scope="col">Eliminar reseña</th>
+          </tr>
+        </thead>
+        <tbody>                          
+          <tr *ngFor="let review of reviews; let i = index">
+            <td>{{review.City.name}}</td>
+            <td>{{review.stars}}</td>
+            <td>{{review.description}}</td>
+            <td><button type="button" class="btn btn-primary" (click)="navigateToModify(review)">Modificar</button></td>
+            <td><button type="button" class="btn btn-danger" (click)="openModal(review, i)">Eliminar</button></td>
+          </tr>
+        </tbody> 
+      </table>
+    </div>
+  </div>
+
+  <div *ngIf="modalSwitch" class="modal fade show" style="display: block; background: rgba(0,0,0,0.5);">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">¿Está seguro que desea eliminar su reseña?</h5>
+          <button type="button" class="close" aria-label="Close" (click)="closeModal()"></button>
+        </div>
+        <div class="modal-body">
+          <p>Una vez eliminada, nadie podrá acceder a ella.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" (click)="closeModal()">Cerrar</button>
+          <button type="button" class="btn btn-danger" (click)="deleteReview()">Eliminar reseña</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="sesion" class="modal fade show" style="display: block; background: rgba(0,0,0,0.5);">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Debe iniciar sesión</h5>
+          <button type="button" class="close" aria-label="Close" (click)="closeModal()"></button>
+        </div>
+        <div class="modal-body">
+          <p>Para realizar esta acción, por favor inicie sesión.</p>
+        </div>
+        <div class="modal-footer">
+          <a routerLink="/login" class="btn btn-primary" routerLink="/iniciar-sesion">Iniciar Sesión</a>
+        </div>
+      </div>
+    </div>
+  </div>
 
 
 
 
+<div *ngIf="noReviews" class="modal fade show" id="modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">No tienes reseñas</h5>
+      </div>
+      <div class="modal-body">
+        <p>No has agregado ninguna reseña. Serás redirigido al inicio.</p>
+      </div>
+    </div>
+  </div>
+</div>
 
 
 </body>

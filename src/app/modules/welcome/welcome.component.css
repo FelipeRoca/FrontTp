@@ -1,12 +1,84 @@
-:host ::ng-deep .p-menubar{
- background: white;
+ .video-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.background-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.opacity {
+  position: absolute; 
+  top: 0; 
+  left: 0; 
+  width: 100%; 
+  height: 100%; 
+  background-color: rgba(0, 0, 0, 0.5); 
+  z-index: 1;
+}
+
+.container {
+  position: relative; 
+  text-align: center; 
+  z-index: 3; 
+  color: white;
+}
+
+.centered {
+  position: absolute;
+  top: 150%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.display-1 {
+  margin-top: 180%;
+  margin-bottom: 20%;
+}
+
+.btn-primary {
+  height: 6vh;
+  width: 15vw;
 }
 
 
-:host ::ng-deep .p-menubar .p-menuitem-text{
-  color: black;
+.blank-section {
+  min-height: 100vh; 
+  background-color: #fff; 
+  display: flex;
   justify-content: center;
-} 
+  align-items: center;
+  padding: 2rem; 
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
 
 
+html {
+  scroll-behavior: smooth;
+}
 
+
+.arrow-down-animated {
+  margin-top: 85px;
+  width: 45px; 
+  height: 45px; 
+  animation: blinker 3s linear infinite; 
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0; 
+  }
+}
